@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>登陆界面</title>
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://p0.meituan.net/travelcube/4efa22ffc4a6a49bbaea14e3c0bee86a1337.png">
+    <style>
+        .container {
+            width: 50%;
+            margin: auto;
+            text-align: center;
+            padding-top: 50px;
+        }
+      
+        input[type=text], input[type=password] {
+            width: 50%;
+            padding: 14px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+      
+        button {
+            background: rgb(255, 209, 0); 
+            color: rgb(34, 34, 34);
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 50%;
+            border-radius: 5px;
+        }
+      
+        button:hover {
+            opacity: 0.8;
+        }
+    </style> 
+</head>
+
+<body>
+    <div style="display: flex; align-items: center; box-shadow: 0 2px 6px 0 #f1f1f6;">
+        <a href="https://e.waimai.meituan.com/new_fe/login_gw#/login" target="_blank">
+            <img src="https://p0.meituan.net/travelcube/4efa22ffc4a6a49bbaea14e3c0bee86a1337.png" style="height: 40px;">
+        </a>
+        <span style="display: inline-block; height: 40px; border-left: 1px solid rgba(28, 28, 28, 0.277); margin: 0 10px;"></span>
+        <a href="https://bksy.bjtu.edu.cn" target="_blank" >
+            <img src="https://bksy.bjtu.edu.cn/New/img/home_pic/logo.png" style="height: 40px;">
+        </a> 
+    </div>
+    
+    <div class="container">
+        <h1>账号登录</h1>
+        <form>
+            <input type="text" placeholder="输入账号" name="userid" required>
+            <input type="password" placeholder="输入密码" name="password" required>
+            <button type="submit" onclick="login()">登录</button>
+        </form>
+    </div>
+
+    <!--通过变量写死⼀个⽤户名和登录密码，点击登录后如⽤户名登录密码符合要求则弹出登录成功提示-->
+    <script>
+        function login() {
+            const userid = document.getElementsByName("userid")[0].value;
+            const password = document.getElementsByName("password")[0].value;
+      
+            if (userid === "user" && password === "12345678") {
+                alert("登录成功");
+            } else {
+                alert("登录失败");
+            }
+        }
+    </script>
+</body>
+</html>
+
+
