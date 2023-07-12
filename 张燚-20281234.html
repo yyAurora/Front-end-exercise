@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login/20281234</title>
+</head>
+<style type="text/css">
+    body {background-color: rgb(23, 3, 5);
+        margin-top:100px;
+        margin-bottom:100px;
+        margin-right:50px;
+        margin-left:50px;
+        }
+    h1 {color: rgb(173, 173, 30);
+        background-color: blue;
+        text-align: center;
+        font-style: italic;
+        width: 1400px;
+    }
+    table {
+        background-color: rgb(187, 143, 67);
+        border-collapse:collapse;
+        width:800px;
+        height: 100px;
+        padding:15px;
+        }
+
+            div {
+    width: 800px;
+    border: 200px solid green;
+    padding: 50px;
+    margin: 50px;
+}
+
+</style>
+<body>
+    <h1>Welcome to 美团</h1>
+<div class="log">
+    <table>
+        <tbody>
+            <tr>
+                <th>account</th>
+                <td><input name="account"  id="acc"></td>
+            </tr>
+            <tr>
+                <th>password</th>
+                <td><input type="password" name="password" id="pass"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" value="登录" onclick="login()" >
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+<script>
+    const useraccount = "zy"
+    const userpass   = "1"
+    const login = () => {
+        const acc = document.getElementById("acc").value
+        const pass = document.getElementById("pass").value
+        if(useraccount === acc &&  userpass === pass) 
+        {
+            window.alert("登录成功！")
+        } else {
+            window.alert("登录失败！")
+        }
+    }
+</script>
