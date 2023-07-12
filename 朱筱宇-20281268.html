@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录页面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            height: 100%;
+        }
+        body {
+            height: 100%;
+        }
+        .container {
+            height: 100%;
+            background-image: linear-gradient(to right, #decef5, #b5ccf3);
+        }
+        .login-wrapper {
+            background-color: #fff;
+            width: 358px;
+            height: 588px;
+            border-radius: 15px;
+            padding: 0 50px;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .header {
+            font-size: 38px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 200px;
+        }
+        .input-item {
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+            border: 0;
+            padding: 10px;
+            border-bottom: 1px solid rgb(128, 125, 125);
+            font-size: 15px;
+            outline: none;
+        }
+        .btn {
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            margin-top: 40px;
+            background-image: linear-gradient(to right,#b5ccf3,#decef5);
+            color: #fff;
+            border:0;
+            border-radius: 5px;
+
+        }
+        .msg {
+            text-align: center;
+            line-height: 88px;
+        }
+        a {
+            text-decoration-line: none;
+            color: #abc1ee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-wrapper">
+            <div class="header">账号登录</div>
+            <div class="form-wrapper">
+                <input type="text" id="username" placeholder="账号名称" class="input-item">
+                <input type="password" id="passwd" placeholder="账号密码" class="input-item">
+                <input class="btn" type="submit" onclick="login()" value="登录">
+            </div>
+            <div class="msg">
+                还未注册账号?
+                <a href="#">点击注册账号</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        var username='acc1';
+        var password='123';
+        function login() { //登陆判断
+            var uname = document.getElementById('username').value;
+            var pword = document.getElementById('passwd').value;
+            if(uname == username && pword == password){
+                window.alert('登录成功');
+            } else {
+                window.alert('登录失败');
+            }
+        }
+    </script>
+</body>
+</html>
