@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"></meta>
+    </head>
+    <body>
+        <div class="root flex-center">
+            <div class="login-box flex-center">
+                <h1>用户登录</h1>
+                <input id="uid" placeholder="账号"/>
+                <input id="upd" type="password" placeholder="密码"/>
+                <button onclick="handleLogin()" type="button">登录</button>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script>
+    const userId = "gc"
+    const userPasswd   = "12138"
+    const handleLogin = () => {
+        const id = document.getElementById("uid").value
+        const pd = document.getElementById("upd").value
+        if(userId === id && userPasswd === pd) {
+            window.alert("登录成功！")
+        } else {
+            window.alert("登录失败！")
+        }
+    }
+</script>
+
+<style>
+    html, body {
+        height: 100%;
+    }
+    .flex-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .root {
+        height: 100%;
+    }
+    .login-box {
+        box-shadow: 0 0 5px 0px darkgray;
+        width: 500px;
+        height: 250px;
+        flex-direction: column;
+    }
+    .login-box input {
+        width: 80%;
+        margin: 10px;
+        appearance: none;
+        border: none;
+        height: 20px;
+        border-bottom: solid 1px gray;
+    }
+    .login-box input:focus {
+        outline: none;
+    }
+    .login-box button {
+        appearance: none;
+        margin: 5px;
+        color: white;
+        background-color: cornflowerblue;
+        border-color: cornflowerblue;
+        border-radius: 10px;
+        width: 100px;
+    }
+    .login-box button:focus {
+        outline: none;
+    }
+</style>
