@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .wel {
+            background: aliceblue;
+            width: 100%;
+            padding: 20px;
+            font-size: 40px;
+            text-align: center;
+        }
+        .in {
+            padding: 20px;
+            background: antiquewhite;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .content {
+            margin: 50px auto;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <div class="wel">
+        欢迎登录！
+    </div>
+    <div class="in">
+        <div>
+            <div>账号：</div>
+            <input type="text"  placeholder="请输入用户名"
+                   id="username">
+            <div>密码：</div>
+            <input type="text" placeholder="请输入密码"
+                   id="pwd">
+            <div style="margin-top: 10px">
+                <button onclick="check()">登录</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function check(){
+        var usrname = document.getElementById("username").value;
+        var pwd = document.getElementById("pwd").value;
+        var name = "syc";
+        var password = 123456;
+        if(name == usrname && pwd == password){
+            alert("登陆成功！");
+        }
+        else{
+            alert("登录失败QAQ")
+        }
+    }
+</script>
+</body>
+</html>

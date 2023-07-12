@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+        }
+
+        .container {
+            height: 100%;
+            background-image: linear-gradient(to right, #4e9fc5, #dc8cc3);
+        }
+
+        .login {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 450px;
+            padding: 10px;
+            background: rgba(49, 99, 208, 0.3);
+            box-sizing: border-box;
+            box-shadow: 0px 15px 25px rgba(0, 0, 0, .5);
+            border-radius: 15px;
+            align-items: center;
+        }
+
+        h2 {
+            line-height: 50px;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bolder;
+            color: white;
+            text-shadow: 2px 2px 4px #000000;
+        }
+
+        .loginBtn {
+            margin-left: 45px;
+            margin-top: 50px;
+            width: 350px;
+            height: 35px;
+            font-size: 15px;
+            background-color: royalblue;
+            color: white;
+            border-color: transparent;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .userInput {
+            margin-left: 45px;
+            align-items: center;
+            margin-top: 10px;
+            width: 340px;
+            height: 35px;
+            box-sizing: border-box;
+            font-family: "Microsoft soft";
+        }
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function login() {
+            var name = document.getElementById("userAccount").value;
+            var pwd = document.getElementById("userPassword").value;
+            if (name == "admin" && pwd == "123456") {
+                alert("登录成功！");
+            } else {
+                alert("登录失败！");
+            }
+        }
+    </script>
+    <div class="container">
+        <div class="login">
+            <h2>Login</h2>
+            <form>
+                <input type="text" class="userInput" placeholder="Account" id="userAccount"><br>
+                <input type="password" class="userInput" placeholder="Password" id="userPassword"><br>
+                <input type="submit" class="loginBtn" value="Login" onclick="login()">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
