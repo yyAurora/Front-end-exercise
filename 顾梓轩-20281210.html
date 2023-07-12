@@ -46,6 +46,18 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .logo > em {
+            display: flex;
+            color: #f1faee;
+            text-align: center;
+            padding-top: 18px;
+            padding-right: 12px;
+            justify-content: center;
+            font-size: 60px;
+            font-family: 'Courier New', Courier, monospace;
         }
 
         .logo-text {
@@ -134,7 +146,7 @@
         <header id="main-header">
             <div class="container">
 
-                <div class="logo"></div>
+                <div class="logo"><em>K</em></div>
                 <div class="logo-text"><strong>开封菜</strong> | 周四绝对不吃金拱门</div>
 
                 <ul>
@@ -203,20 +215,17 @@
             userName : '1',
             password : '1'
         }];
-
         const userName = document.querySelector('#account');
         const password = document.querySelector('#password');
         const checkbox = document.querySelector('#checkbox');
         const button = document.querySelector('.submit-button');
         const errorMessages = document.querySelectorAll('.error');
 
+        
         button.addEventListener('click', (e) => {
             e.preventDefault();
-            RefreshErrorMessages();
-            if (checkbox.checked === false) { errorMessages[1].textContent = '请先勾选底部菜单协议'; return; }
-            if (userName.value === '') errorMessages[0].textContent = '账号为空!';
-            if (password.value === '') errorMessages[1].textContent = '密码为空!';
-            if (userName.value === '' || password.value === '') return;
+            ClearErrorMessages();         
+            if (HaveError()) return;
 
             const account = accountsSaved.filter((account) => {
                 return account.userName === userName.value && account.password === password.value;
@@ -229,10 +238,19 @@
             }
         });
         
-        function RefreshErrorMessages() {
+
+        function ClearErrorMessages() {
             errorMessages.forEach(message => {
                 message.textContent = '';
             });
+        }
+
+        function HaveError() {
+            if (checkbox.checked === false) { errorMessages[1].textContent = '请先勾选底部菜单协议'; return true; }
+            if (userName.value === '') errorMessages[0].textContent = '账号为空!';
+            if (password.value === '') errorMessages[1].textContent = '密码为空!';
+            if (userName.value === '' || password.value === '') return true;
+            return false;
         }
     </script>
 </body>
