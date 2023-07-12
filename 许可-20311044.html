@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>美团实践个人作业</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            padding: 20px;
+            background-color: #F5DEB3; 
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .login-options {
+            margin-top: 20px;
+        }
+
+        .login-option {
+            display: inline-block;
+            margin-right: 20px;
+            font-size: 20px;
+            color: #333;
+            cursor: pointer;
+            border: 2px solid #E8AA56; 
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #E8AA56; 
+            color: #FFFFFF; 
+        }
+
+        .login-form {
+            margin-top: 50px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+        }
+
+        .form-group input[type="text"], 
+        .form-group input[type="password"],
+        .form-group input[type="submit"] {
+            width: 200px;
+            padding: 5px;
+            font-size: 16px;
+            border: 2px solid #000000; /* 黑色 */
+            border-radius: 5px;
+            background-color: #FFFFFF; /* 白色 */
+        }
+
+        .form-group input[type="submit"] {
+            margin-top: 10px;
+            background-color: #000000; /* 黑色 */
+            color: #FFFFFF; /* 白色 */
+            cursor: pointer;
+        }
+
+        .popup {
+            display: none; /* 页面加载时隐藏弹窗 */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border: 2px solid #333;
+            padding: 20px;
+            z-index: 9999;
+            border-radius: 5px;
+        }
+
+        .popup-message {
+            margin-bottom: 10px;
+            color: green;
+        }
+
+        .popup-button {
+            padding: 5px 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>美团实践个人作业</h1>
+    <div class="login-options">
+        <div class="login-option" onclick="showLogin('account')">账号登录</div>
+        <div class="login-option" onclick="showLogin('phone')">手机登录</div>
+    </div>
+    <div class="login-form">
+        <form id="account-login" onsubmit="return checkAccountLogin()">
+            <div class="form-group">
+                <label>用户名:</label>
+                <input type="text" id="username">
+            </div>
+            <div class="form-group">
+                <label>密码:</label>
+                <input type="password" id="password">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="登录">
+            </div>
+        </form>
+        <form id="phone-login" style="display:none;" onsubmit="return checkPhoneLogin()">
+            <div class="form-group">
+                <label>手机号:</label>
+                <input type="text" id="phone-number">
+            </div>
+            <div class="form-group">
+                <label>验证码:</label>
+                <input type="text" id="verification-code">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="登录">
+            </div>
+        </form>
+    </div>
+
+    <div class="popup" id="success-popup">
+        <div class="popup-message">登录成功</div>
+        <button class="popup-button" onclick="hidePopup()">关闭</button>
+    </div>
+
+    <script>
+        // 预设的用户名和密码，手机号和验证码
+        var validUsername = "xuke";
+        var validPassword = "20311044";
+        var validPhoneNumber = "1234567890";
+        var validVerificationCode = "1234";
+
+        // 页面加载时直接显示账号登录的输入
+        document.getElementById("account-login").style.display = "block";
+
+        function showLogin(option) {
+            if (option === 'account') {
+                document.getElementById("account-login").style.display = "block";
+                document.getElementById("phone-login").style.display = "none";
+            } else if (option === 'phone') {
+                document.getElementById("account-login").style.display = "none";
+                document.getElementById("phone-login").style.display = "block";
+            }
+        }
+
+        function checkAccountLogin() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            if (username === validUsername && password === validPassword) {
+                showPopup("success-popup");
+                return false;
+            } else {
+                alert("用户名或密码不正确");
+                return false;
+            }
+        }
+
+        function checkPhoneLogin() {
+            var phoneNumber = document.getElementById("phone-number").value;
+            var verificationCode = document.getElementById("verification-code").value;
+            if (phoneNumber === validPhoneNumber && verificationCode === validVerificationCode) {
+                showPopup("success-popup");
+                return false;
+            } else {
+                alert("手机号或验证码不正确");
+                return false;
+            }
+        }
+
+        function showPopup(popupId) {
+            var popup = document.getElementById(popupId);
+            popup.style.display = "block";
+        }
+
+        function hidePopup() {
+            var popups = document.getElementsByClassName("popup");
+            for (var i = 0; i < popups.length; i++) {
+                popups[i].style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
