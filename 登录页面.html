@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            margin: 50px auto;
+            max-width: 400px;
+        }
+
+        input[type="text"], input[type="password"] {
+            border: none;
+            border-radius: 3px;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+            display: block;
+            font-size: 16px;
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 3px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h1>Login</h1>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <input type="submit" value="Login">
+    </form>
+
+    <script>
+        // 获取表单元素
+        var form = document.querySelector("form");
+        var usernameInput = document.querySelector("#username");
+        var passwordInput = document.querySelector("#password");
+
+        // 定义正确的用户名和密码
+        var correctUsername = "admin";
+        var correctPassword = "password";
+
+        // 监听表单提交事件
+        form.addEventListener("submit", function(event) {
+            event.preventDefault(); // 阻止表单默认提交行为
+
+            // 获取输入的用户名和密码
+            var username = usernameInput.value;
+            var password = passwordInput.value;
+
+            // 验证用户名和密码是否正确
+            if (username === correctUsername && password === correctPassword) {
+                // 如果验证通过，显示登录成功的提示框
+                alert("Login successful!");
+            } else {
+                // 如果验证不通过，显示错误信息
+                alert("Incorrect username or password!");
+            }
+        });
+    </script>
+</body>
+</html>
