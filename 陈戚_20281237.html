@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <style type="text/CSS">
+        .pge{
+            margin: auto;
+            width: 50%;
+        }
+        .index{
+           background: skyblue;
+           padding: 10px;
+           text-align: center;
+        }
+        .login{
+            background: white;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="pge">
+        <div class="index">
+            login system
+        </div>
+        <div class="login">
+            <div>
+                <div>Account:</div>
+                <input type="text" placeholder="Your account here" id="username">
+                <br>
+                <div>Password:</div>
+                <input type="text" placeholder="Your password here" id="password">
+                <div style="margin-top: 10px;">
+                    <button onclick="loginf()">login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function loginf(){
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            if (username=="CQ" && password==123){
+                alert("login successed!");
+            }
+            else{
+                alert("login failed!");
+            }
+        }
+    </script>
+
+</body>
+</html>
