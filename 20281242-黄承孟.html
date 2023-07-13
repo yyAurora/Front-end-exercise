@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+
+    <title>Document</title>
+    <style>
+
+        input{
+            height: 30px;
+            width: 200px;
+            margin: 10px;
+            border: 2px solid #c2c2c2;
+            border-radius: 5px;
+
+            
+        }
+        button{
+            margin-top: 15px;
+            height: 40px;
+            width: 100px;
+            border: none;
+            border-radius: 5px;
+            background-color: #FFD100;
+            
+        }
+        .wrap{
+            text-align: center;
+            width: 350px;
+            height: 300px;
+            box-shadow: 0px 0px 5px 2px rgba(169, 169, 169, 0.5);
+            border-radius: 10px;
+        }
+        .title{
+            margin-top: 35px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .titleunderline{
+            border-bottom: 2.5px solid;
+            width: 25px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+        .maintain{
+            background-image: url("https://p0.meituan.net/smartvenus/82378704aea1d0f198be5cd125a1eca1283134.png");
+            background-size: cover; /* 背景图片大小适应屏幕 */
+            background-repeat: no-repeat; /* 禁止重复平铺 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 95vh;
+        }
+        .headerlogo{
+            width: 113px;
+            height: 40px;
+        }
+        .header{
+            display: flex;
+            align-items: center;
+            height: 10vh;
+
+
+
+        }
+        .headertitle{
+            margin-left: 30px;
+            font-weight: 800;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img class="headerlogo" src='https://s3plus.meituan.net/v1/mss_f231eb419c414559a1837748d11d4312/yoda-resources/mtlog.png'>
+        <div class="headertitle">登录界面</div>
+    </div>
+    <div class="maintain">
+        <div class="wrap">
+            <div class="title">登录</div>
+            <hr class="titleunderline">
+            <input id="userName" type="text" placeholder="请输入用户名">
+            <br>
+            <input id="password" placeholder="请输入密码">
+            <br>
+            <button onclick="login()">点击登录</button>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        function login() {
+            var name = document.getElementById("userName").value;
+            var pwd = document.getElementById("password").value;
+            if (name == "hcm" && pwd == "hcm666") {
+                alert("登录成功！");
+            } else {
+                alert("登录失败！");
+            }
+        }
+    </script>
+</body>
+</html>
