@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录页面</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: aliceblue;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: rgba(250, 208, 0, 0.477);
+            box-shadow: 0px 5px 5px grey;
+        }
+
+        .logo {
+            font-size: 20px;
+            color: rgb(206, 34, 34);
+        }
+
+        .nav-links {
+            margin-left: auto;
+            display: flex;
+        }
+
+        .nav-link {
+            font-size: 20px;
+            color: rgb(75, 25, 228);
+            margin-right: 20px;
+        }
+
+        .center {
+            display: flex;
+            justify-content: center;
+        }
+
+        .content {
+            margin-top: 60px;
+            text-align: center;
+            border: 2px solid #ffd100;
+            width: 300px;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .content h2 {
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-label {
+            display: flex;
+            margin-left: 24px;
+            margin-bottom: 3px;
+            font-size: 18px;
+            color: #e7196b;
+        }
+
+        .input-field {
+            padding: 5px;
+            height: 20px;
+            width: 250px;
+            border-radius: 8px
+        }
+
+        .forget {
+            text-align: right;
+        }
+
+        .checkbox {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .login-button {
+            width: 200px;
+            background-color: #ffd100;
+            color: #000;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .login-button:hover {
+            background-color: #ffdb4d;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .register a {
+            margin-bottom: 20px;
+            color: rgb(248, 120, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <a class="logo" href="#">LOGO-CMQ</>
+            <div class="nav-links">
+                <a class="nav-link" href="#">PC端下载</a>
+                <a class="nav-link" href="#">手机端下载</a>
+            </div>
+    </div>
+
+    <div class="center">
+        <div class="content">
+            <h2>账号登录</h2>
+            <div class="input-group">
+                <label class="input-label" for="username">账号:</label>
+                <input class="input-field" type="text" id="username" placeholder="输入账号">
+            </div>
+            <div class="input-group">
+                <label class="input-label" for="password">密码:</label>
+                <input class="input-field" type="password" id="password" placeholder="输入密码">
+            </div>
+            <div class="input-group forget">
+                <a id="forget" href="#">忘记账号/密码</a>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="agreement"> 我已阅读协议并同意《隐私协议》
+                </label>
+            </div>
+            <button class="login-button" onclick="login()">登录</button>
+            <div class="register">
+                <a href="#">注册账号，免费入驻</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    function login() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        var validUsername = "cmq";
+        var validPassword = "20281271";
+
+        if (username === validUsername && password === validPassword) {
+            alert("登录成功！");
+        } else {
+            alert("用户名或密码不正确！");
+        }
+    }
+</script>
+
+</html>
