@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20271019的登录界面</title>
+  <style>
+    body {
+      background: url('https://img-blog.csdnimg.cn/20201204152846882.gif#pic_center') no-repeat;
+      background-size: 100% 150%;
+    }
+
+    #login_box {
+      width: 20%;
+      height: 350px;
+      background-color: #00000060;
+      margin: auto;
+      margin-top: 10%;
+      text-align: center;
+      border-radius: 10px;
+      padding: 50px 50px;
+    }
+
+    h2 {
+      color: #ffdd00;
+      margin-top: 5%;
+    }
+
+    #input-box {
+      margin-top: 10%;
+    }
+
+    span {
+      color: #fff;
+    }
+
+    input {
+      border: 0;
+      width: 70%;
+      font-size: 18px;
+      color: #fff;
+      background: transparent;
+      border-bottom: 2px solid #fff;
+      padding: 5px 10px;
+      outline: none;
+      margin-top: 10px;
+    }
+
+    button {
+      margin-top: 50px;
+      width: 60%;
+      height: 30px;
+      border-radius: 10px;
+      border: 0;
+      color: #fff;
+      text-align: center;
+      line-height: 30px;
+      font-size: 15px;
+      background-image: linear-gradient(to right, #30cfd0, #330867);
+    }
+
+    #sign_up {
+      margin-top: 45%;
+      margin-left: 60%;
+    }
+
+    a {
+      color: #0c9ef3;
+      font-size: 12px;
+      line-height: 100px;
+      text-decoration: none;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="login_box">
+    <h2>欢迎登录</h2>
+    <div id="input_box">
+      <input type="text" placeholder="请输入用户名" id="username">
+    </div>
+    <div class="input_box">
+      <input type="password" placeholder="请输入密码" id="password">
+    </div>
+    <button onclick="Login()">登录</button><br>
+    <a href="https://www.baidu.com/">没有账号？点此注册（该页面未编写）</a>
+  </div>
+  <script>
+    function Login() {
+      var username="wcj";
+      var password="20271019";
+      var name_input = document.getElementById("username").value;
+      console.log(name_input);
+      var pword_input = document.getElementById("password").value;
+      console.log(pword_input);
+      if (name_input==username && pword_input==password) {
+        alert("登陆成功！");
+      }
+      else if (name_input=="") {
+        alert("请输入用户名！");
+      }
+      else if (pword_input=="") {
+        alert("请输入密码！");
+      }
+      else {
+        alert("用户名或密码错误！");
+      }
+    }    
+  </script>
+</body>
+</html>

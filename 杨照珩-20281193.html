@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    :root{
+        --white:#e9e9e9;
+        --gray:#333;
+        --blue:#0367a6;
+        --lightblue:#008997;
+
+        --button-radius:0.7rem;
+        --max-width:758px;
+        --max-height:420px;
+
+        font-size:16px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    body{
+        align-items: center;
+        background-color: var(--white);
+        /* background: url(background.jpg); */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: grid;
+        height: 100vh;
+        place-items: center;
+    }
+
+    .from_title{
+        font-weight: 300;
+        margin: 0;
+        margin-bottom: 1.25rem;
+    }
+
+    .link{
+        color: var(--grey);
+        font-size: 0.9rem;
+        margin: 1.5rem 0;
+        text-decoration: none;
+    }
+
+    .container{
+        background-color: var(--white);
+        border-radius: var(--button-radius);
+        box-shadow: 0 0.9rem 1.7rem rgba(0, 0, 0, 0.25);
+        height: var(--max-height);
+        max-width: var(--max-width);
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+
+    .container_from{
+        height: 100%;
+        position: absolute;
+        top: 0;
+        transition: all 0.6s ease-in-out;
+    }
+
+    .container--signin{
+        left: 0;
+        width: 50%;
+        z-index: 2;
+    }
+
+    .container.right-panel-active .container-signin{
+        transform: translateX(100%);
+    }
+
+    .container--signup{
+        left: 0;
+        opacity: 0;
+        width: 50%;
+        z-index: 1;
+    }
+
+    .container.right-panel-active .container--signup{
+        animation: show 0.6s;
+        opacity: 1;
+        transform: translateX(100%);
+        z-index: 5;
+    }
+
+
+    .container_overlay{
+        height: 100%;
+        left: 50%;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        transition: transform 0.6s ease-in-out;
+        width: 50%;
+        z-index: 100;
+    }
+
+    .container.right-panel-active .container_overlay{
+        transform: translateX(-100%);
+    }
+
+    .overlay{
+        background-color: var(--lightblue);
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        left: -100%;
+        position: relative;
+        transform: translateX(0);
+        transition: transform 0.6s ease-in-out;
+        width: 200%;
+    }
+
+    .container.right-panel-active .overlay{
+        transform: translateX(50%);
+    }
+
+    .overlay_panel{
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        transform: translateX(0);
+        transition: transform 0.6s ease-in-out;
+        width: 50%;
+    }
+
+    .overlay--left{
+        transform: translateX(-20%);
+    }
+
+    .container.right-panel-active .overlay--left{
+        transform: translateX(0);
+    }
+
+    .overlay--right{
+        right: 0;
+        transform: translateX(0);
+    }
+
+    .container.right-panel-active .overlay--right{
+        transform: translateX(20%);
+    }
+
+    .btn{
+        background-color: var(--blue);
+        background-image: linear-gradient(90deg,var(--blue) 0%, var(--lightblue) 74%);
+        border-radius: 20px;
+        border: 1px solid var(--blue);
+        color: var(--white);
+        cursor: pointer;
+        font-size: 0.8rem;
+        font-weight: bold;
+        letter-spacing: 0.1rem;
+        padding: 0.9rem 4rem;
+        text-transform: uppercase;
+        transition: transform 80ms ease-in;
+    }
+
+    .form > .btn{
+        margin-top: 1.5rem;
+    }
+
+    .btn:active{
+        transform: scale(0.95);
+    }
+
+    .btn:focus{
+        outline: none;
+    }
+
+    .from{
+        background-color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 3rem;
+        height: 100%;
+        text-align: center;
+    }
+
+    .input{
+        background-color: #fff;
+        border: none;
+        padding: 0.9rem 0.9rem;
+        margin: 0.5rem 0;
+        width: 100%;
+    }
+
+    .checkbox-container {
+        display: inline-block;
+        margin-top: 5px;
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-size: 0.9rem;
+        margin-right: 20px;
+    }
+
+    @keyframes show{
+        0%,
+        49.99%{
+            opacity: 0;
+            z-index: 1;
+        }
+
+        50%,
+        100%{
+            opacity: 1;
+            z-index: 5;
+        }
+    }
+</style>
+<body>
+    <div class="container right-panel-active">
+        <div class="container_from container--signup">
+            <form class="from" id="from1" autocomplete="off">
+                <h2 class="from_title">注册账号</h2>
+                <input type="text" placeholder="User" class="input" id="User">
+                <input type="password" placeholder="Password" class="input" id="Password">
+                <input type="text" placeholder="Restaurant Name" class="input" style="display:none" id="input-container">
+                <div class="checkbox-container">
+                    <label>
+                        <input type="radio" name="user" value="option1" checked>
+                        基础用户
+                    </label>
+                    <label>
+                        <input type="radio" name="user" value="option2">
+                        商家
+                    </label>
+                </div>
+                <button class="btn" type="submit" id="btn1">点击注册</button>
+            </form>
+        </div>
+    
+
+        <div class="container_from container--signin">
+            <form class="from" id="from2" autocomplete="off">
+                <h2 class="from_title">欢迎登录</h2>
+                <input type="text" placeholder="请输入：yzh" class="input" id="User2">
+                <input type="password" placeholder="请输入：123456" class="input" id="Password2">
+                <a href="#" class="link">忘记密码</a>
+                <button class="btn" type="submit" id="btn2">登录</button>
+            </form>
+        </div>
+
+        <div class="container_overlay">
+            <div class="overlay">
+                <div class="overlay_panel overlay--left">
+                    <button class="btn" id="signin">已有账号，直接登录</button>
+                </div>
+
+                <div class="overlay_panel overlay--right">
+                    <button class="btn" id="signup">没有账号，点击注册</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    window.onload = function() {
+        document.getElementById("User").value = "";
+        document.getElementById("Password").value = "";
+        document.getElementById("input-container").value = "";
+        document.getElementById("User2").value = "";
+        document.getElementById("Password2").value = "";
+    }
+
+    const signinBtn = document.getElementById("signin");
+    const signupBtn = document.getElementById("signup");
+    const firstForm = document.getElementById("from1");
+    const secondForm = document.getElementById("from2");
+    const container = document.querySelector(".container");
+
+    signinBtn.addEventListener("click", ()=>{
+        container.classList.remove("right-panel-active");
+    })
+
+    signupBtn.addEventListener("click", ()=>{
+        container.classList.add("right-panel-active");
+    })
+
+    firstForm.addEventListener("submit",(e) => e.preventDefault());
+    secondForm.addEventListener("submit", (e) => e.preventDefault());
+
+    const option1 = document.querySelector('input[value="option1"]');
+    const option2 = document.querySelector('input[value="option2"]');
+    const inputContainer = document.getElementById('input-container');
+
+    option1.addEventListener('click', function() {
+    inputContainer.style.display = 'none';
+    });
+
+    option2.addEventListener('click', function() {
+    inputContainer.style.display = 'block';
+    });
+
+    document.getElementById("btn1").addEventListener("click", function() {
+        alert("该功能暂不可用");
+    })
+
+    document.getElementById("btn2").addEventListener("click", function(){
+        const username = document.getElementById("User2");
+        const Password = document.getElementById("Password2");
+        if(username.value == "" || Password.value == "") {
+            alert("用户名和密码不能为空！")
+        }
+        else if(username.value == "yzh" && Password.value == "123456") {
+            alert("登陆成功！");
+        }
+        else {
+            alert("账号或密码有误！");
+        }
+    })
+
+    // document.getElementById("btn1").addEventListener("click", function() {
+    //     const username = document.getElementById("User");
+    //     const Password = document.getElementById("Password");
+    //     const restaurant_name = document.getElementById("input-container");
+    //     const select_information = [];
+    //     select_information.push(username.value)
+    //     select_information.push(Password.value)
+    //     select_information.push(restaurant_name.value)
+
+    //     if (select_information.length > 0) {
+    //             const xhr = new XMLHttpRequest();
+    //             xhr.open("POST", "/signup", true);
+    //             xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    //             xhr.onreadystatechange = function() {
+    //                 if (xhr.readyState == 4 && xhr.status == 200) {
+    //                     const response = JSON.parse(xhr.responseText)
+    //                     if (response == "1") {
+    //                         alert("管理员注册成功");
+    //                         window.location.href = "/admin";
+    //                     }
+    //                     else if(response == "2") {
+    //                         alert("注册成功！"); 
+    //                         window.location.href = "/page1";
+    //                     }
+    //                     else {
+    //                         alert("用户已存在！");
+    //                     }
+    //                 }
+    //             };
+    //             xhr.send(JSON.stringify({from1: select_information}));
+    //         } else {
+    //             alert("请填写完整信息！");
+    //         }
+    // });
+
+    // document.getElementById("btn2").addEventListener("click", function() {
+    //     const username = document.getElementById("User2");
+    //     const Password = document.getElementById("Password2");
+    //     const select_information = [];
+    //     select_information.push(username.value)
+    //     select_information.push(Password.value)
+
+    //     if (select_information.length > 0) {
+    //             const xhr = new XMLHttpRequest();
+    //             xhr.open("POST", "/signin", true);
+    //             xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    //             xhr.onreadystatechange = function() {
+    //                 if (xhr.readyState == 4 && xhr.status == 200) {
+    //                     const response = JSON.parse(xhr.responseText)
+    //                     if(response == "1") {
+    //                         alert("登录成功！"); 
+    //                         window.location.href = "/page1";
+    //                     }
+    //                     else if(response == "2") {
+    //                         alert("密码错误！");
+    //                     }
+    //                     else if(response == "3") {
+    //                         alert("用户不存在！");
+    //                     }
+    //                     else if(response == "4") {
+    //                         alert("管理员登录成功");
+    //                         window.location.href = "/admin";
+    //                     }
+    //                 }
+    //             };
+    //             xhr.send(JSON.stringify({from2: select_information}));
+    //         } else {
+    //             alert("请填写完整信息！");
+    //         }
+    // });
+</script>
+</html>

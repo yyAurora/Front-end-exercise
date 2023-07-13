@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课后作业</title>
+    <style>
+        h1{
+            width: 400px;
+            margin: auto;
+        }
+        .container{
+            width: 400px;
+            margin: auto;
+            background-color: blanchedalmond;
+        }
+        .input-container{
+            width: 100px;
+            height: 30px;
+        }
+        .login-container{
+            height: 30px;
+            color: green;
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <h1>WZL20281126</h1>
+    <div class="container">
+        <div class="login-container">账号登录</div>
+            <div class="input-container">
+                <input id="login" type="text" placeholder="输入账号" value>
+            </div>
+            <div class="input-container">
+                <input id="password" type="password" placeholder="输入密码" value>
+            </div>
+            <button type="submit" onclick="login()">登录</button>
+
+        
+    </div>       
+    
+    <script>
+        function login() {
+
+            var username = document.getElementById("login").value;
+            var password = document.getElementById("password").value;
+
+            if(username == "admin" && password == "123456") {
+                alert("登录成功!");
+            } else {
+                alert("登录失败!");
+            }
+        }
+    </script>
+        
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美团登陆界面</title>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            margin-left: 100px;
+        }
+
+        .img_container {
+            flex: 1;
+        }
+
+        .img_container img {
+            width: 100%;
+            height: auto;
+        }
+
+        .login_container {
+            flex: 1;
+            margin-left: 20px;
+            padding: 5px;
+            border: 10px;
+        }
+
+        .login_container input[type="text"],
+        .login_container input[type="password"] {
+            padding: 5px;
+            margin-bottom: 10px;
+            width: 60%;
+        }
+
+        .meituan {
+            margin: 5px 10px 1px 100px;
+        }
+        .meituan img {
+            width: 9%;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div>
+        <b style="color: darkgray; font-size: 10px;">my login_meituan</b>
+    </div>
+
+    <div class="meituan">
+        <img src="../static/img/meituan.png" />
+    </div>
+
+    <div class="container">
+        <div class="img_container">
+            <img src="../static/img/meituan_background.png" />
+        </div>
+        <div class="login_container">
+            <h3>登录</h3>
+            <input type="text" id="username" placeholder="用户名"><br>
+            <input type="password" id="password" placeholder="密码"><br>
+            <button onclick="login()">登录</button>
+        </div>
+    </div>
+    
+    <script>
+        function login(){
+            var username=document.getElementById("username").value;
+            var password=document.getElementById("password").value;
+
+            if(username == "zhangsan" && password == "123"){
+                alert("你已成功登录！欢迎:" + username);
+            }else{
+                alert("请填写正确用户名和密码！")
+            }
+        }
+    </script>
+
+</body>
+</html>
