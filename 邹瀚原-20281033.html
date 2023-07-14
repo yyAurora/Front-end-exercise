@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .navigation{
+        position: sticky;
+        background-color:#FFF8DC;
+        display:inline-block;
+        height: 60px;
+        width: 100%;
+        /* 间距，上右下左 */
+        align-items: center;   
+    } 
+
+    .Login{
+        background-color:azure;
+        display:inline-block;
+        width: 300px;
+        height: 400px;
+        margin: 100px auto 0;
+        text-align: center;
+
+    }
+
+    .button{
+            background-color: rgb(247, 240, 46);
+            display:inline-block;
+            width: 80px;
+            height:25px;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+    <span class="navigation">
+        <h3><font face="STKAIti">登录界面</font></h3>
+    </span>
+    <br>
+    <center>
+        <span class="Login">
+            <p><font face="STKAIti" size="18">账号登录</font></p>
+            <input type="int" id="idUser" placeholder="输入账号">
+            <br><br>
+            <input type="text" id="pwdUser" placeholder="输入密码">
+            <br><br>
+            <div class="button" onclick="MyFun()"><font face="STKAIti">登录</font></div>
+        </span>
+    </center>
+
+    
+<script>
+function MyFun()
+{
+    var id =document.getElementById("idUser").value;
+    var pwd =document.getElementById("pwdUser").value;
+
+	if((id=="MEITUAN") && (pwd=="WAIMAI"))
+	{
+		alert("登录成功");
+	}
+    else
+    {
+        alert("登录失败");
+    }
+
+}
+</script>
+</body>
+</html>
