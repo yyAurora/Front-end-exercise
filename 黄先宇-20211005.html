@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>20211005-黄先宇</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #subabout {
+            padding: 100px;
+        }
+
+        #about {
+            height: 100vh;
+            background-image: url("https://i0.hdslb.com/bfs/archive/c804d7c1b9f99f2831691289b7db857ca5f44337.jpg");
+            background-size: 100% 100%;
+            width: 100%;
+        }
+
+        .loginContainer {
+            border-radius: 15px;
+            background-clip: padding-box;
+            margin: 0 auto;
+            width: 350px;
+            padding: 15px 55px 35px 55px;
+            background-color: aliceblue;
+            border: 1px solid blanchedalmond;
+            box-shadow: 0 0 25px blanchedalmond;
+            margin-top: 20px;
+        }
+
+        .input {
+            /* border-radius: 6px; */
+            margin-top: 10px;
+            font-size: large;
+            height: 40px;
+            width: 350px;
+            background-color: aliceblue;
+            border-bottom: 1px solid #dbdbdb;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            outline: none;
+        }
+
+        .field {
+            text-align: left;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            border-radius: 10px;
+            height: 40px;
+            width: 70px;
+            margin-top: 20px;
+            background-color: cornflowerblue;
+            color: white;
+            border: 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="about">
+        <div id="subabout">
+            <form align="center"
+                  class="loginContainer">
+                <image style="width: 350px; height: 70px"
+                       src="https://w.meituan.net/v1/mss_0e4451a82e1d428f9fc3b99c0b3ebf15/waimai-e-fe-new-574503a2/production/images/logo-5496ba2ea8.webp">
+                </image>
+                <div class="field">用户名<span style="color: red">*</span></div>
+                <input class="input"
+                       type="text"
+                       id="name"
+                       placeholder="请输入用户名"><br>
+                <div class="field">密码<span style="color: red">*</span></div>
+                <input class="input"
+                       type="password"
+                       id="pswd"
+                       placeholder="请输入密码">
+                <button class="btn"
+                        id="login_btn"
+                        onclick="login()">登录</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        let user = [
+            {
+                name: 'xyhuang',
+                pswd: '20211005'
+            },
+            {
+                name: 'haohao',
+                pswd: '20020518'
+            }
+        ]
+        function login() {
+            var username = document.getElementById('name').value;
+            var password = document.getElementById('pswd').value;
+            var index = 0
+            if (username == '') {
+                alert('请输入用户名')
+                return;
+            }
+            if (password == '') {
+                alert('请输入密码')
+                return;
+            }
+            console.log(username, password)
+            for (var i = 0; i < user.length; i++) {
+                if (username == user[i].name) {
+                    index = i + 1
+                }
+            }
+            if (index === 0) alert('用户不存在')
+            else {
+                if (user[index - 1].pswd == password) {
+                    alert('登录成功')
+                }
+                else alert('用户名或密码错误')
+            }
+        }
+    </script>
+
+</body>
+
+</html>
