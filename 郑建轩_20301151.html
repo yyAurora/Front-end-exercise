@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+.login-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #f2f2f2; /* 添加背景色 */
+  border-radius: 4px; /* 添加圆角边框 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+}
+
+.brand {
+  margin-bottom: 20px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+.label {
+  font-weight: bold;
+  flex: 0 0 120px; /* 根据文本长度减小固定宽度 */
+}
+
+.input-wrapper {
+  flex: 1;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f6f8fa;
+  outline: none; /* 去除输入框聚焦时的边框 */
+}
+
+.wide-input {
+  width: 200px; /* 增加输入框的宽度 */
+}
+
+.login-button {
+  padding: 10px;
+  background-color: #0070f3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%; /* 设置按钮宽度为100% */
+  max-width: 200px; /* 设置按钮最大宽度，根据需要进行调整 */
+  margin: 0 auto; /* 居中对齐 */
+}
+
+.social-login {
+  margin-top: 20px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  margin: 0 5px;
+}
+
+.options {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.option-link {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.option-link:hover {
+  text-decoration: underline;
+}
+
+.option-separator {
+  margin: 0 5px;
+}
+
+.brand-logo {
+  width: 100px;
+  height: auto;
+}
+
+.social-icon {
+  width: 30px; /* 设置社交图标的宽度 */
+  height: 30px; /* 设置社交图标的高度 */
+}
+</style>
+
+
+</head>
+<body>
+   <div class="login-container">
+    <div class="brand">
+      <!-- 添加品牌Logo -->
+      <img src="../assets/makima.jpg" alt="品牌标识" class="brand-logo">
+    </div>
+    <form id="login-form" class="login-form">
+      <div class="form-group">
+        <label for="username" class="label">用户名或邮箱：</label>
+        <div class="input-wrapper">
+          <input type="text" id="username" class="input wide-input" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password" class="label">密码：</label>
+        <div class="input-wrapper">
+          <input type="password" id="password" class="input wide-input" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="login-button">登录</button>
+      </div>
+    </form>
+    <div class="social-login">
+      <p>社交账号登录：</p>
+      <div class="social-icons">
+        <!-- 添加社交账号登录的图标和链接 -->
+        <a href="#"><img src="../assets/wechat.png" alt="微信登录" class="social-icon"></a>
+        <a href="#"><img src="../assets/weibo.png" alt="微博登录" class="social-icon"></a>
+        <a href="#"><img src="../assets/github.png" alt="GitHub登录" class="social-icon"></a>
+      </div>
+    </div>
+    <p class="options">
+      <a href="#" class="option-link">忘记密码</a>
+      <span class="option-separator">·</span>
+      <router-link to="/register" class="option-link">免费注册</router-link>
+    </p>
+    <div id="login-message" class="form-group"></div>
+  </div>   
+  <script>
+    const loginForm = document.getElementById('login-form');
+    const loginMessage = document.getElementById('login-message');
+
+    loginForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (username === 'admin' && password === 'password') {
+        loginMessage.textContent = '登录成功';
+        loginMessage.style.color = 'green';
+      } else {
+        loginMessage.textContent = '用户名或密码错误';
+        loginMessage.style.color = 'red';
+      }
+    });
+  </script>
+</body>
+</html>
