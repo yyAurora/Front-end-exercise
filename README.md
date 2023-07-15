@@ -1,8 +1,7 @@
-# Front-end-exercise
-第一天课后作业
+第一天作业的网站界面如下：
+![image](https://github.com/mt-bjtu-practical/Front-end-exercise/assets/122513385/05528dd6-d055-42a9-88e7-9fe6c1258c6f)
+在用户名输入zmy,密码输入123456即可显示登录成功
+![image](https://github.com/mt-bjtu-practical/Front-end-exercise/assets/122513385/c0f5e17f-0fa1-45a6-a02a-f78e355b5d6a)
+登录其他的内容，都是错误的
+![image](https://github.com/mt-bjtu-practical/Front-end-exercise/assets/122513385/317913bd-4022-4242-80c0-eb7eadd53351)
 
-# 作业内容
-1. 完成一个登录页面
-2. HTML、CSS、JS写在一个HTML文档中
-3. 通过变量写死一个用户名和登录密码，点击登录后如用户名登录密码符合要求则弹出登录成功提示
-4. 将代码提交至github组织mt-bjtu-practical下的Front-end-exercise仓库，文件命名为姓名+学号（如：zhangsan-17111111.html）
