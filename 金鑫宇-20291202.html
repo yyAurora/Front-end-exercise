@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="wNameth=device-wNameth, initial-scale=1.0">
+    <title>登陆页面</title>
+    <script>
+        const userName = "jxy";
+        const Password = "123";
+        function check() {          
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            if (username == userName && password == Password) {
+                alert("登录成功");
+            } else {
+                alert("用户名或密码错误");
+            }
+        }
+    </script>
+    <style>
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+        .box {
+            width: 300px;
+            border: 10px solid gray;
+            padding: 25px;
+            margin: 25px;
+        }
+        .box h2{
+            color:brown;
+            text-align: center;
+        }
+        .box input{
+            width: 90%;
+            margin:10pt;
+            border: none;
+            appearance: none;
+            border-bottom: 1px solid gray;
+        }
+        .box button{
+            appearance: none;
+            background-color: cornflowerblue;
+            border-color: cornflowerblue;
+            margin-left: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <div class="box">
+            <h2>登录页面</h2>           
+            <input type="text" id="username" placeholder="账号"><br>
+            <input type="password" id="password" placeholder="密码"><br>
+            <button onclick="check()" type="button">登录</button>
+        </div>
+    </div>
+</body>
+</html>

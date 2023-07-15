@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="CSS/User_login.css" rel="stylesheet" type="text/css" />
+    <link href="CSS/common.css" rel="stylesheet"> -->
+    <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+    <title>用户登录</title>
+    <style type="text/css">
+        /* 按钮 */
+        button {
+            background-color: rgb(44, 151, 238);
+            color: #fff;
+            padding: 2px 5px;
+            height: 35px;
+            width: 100px;
+            border-color: #fff;
+        }
+
+        button:hover {
+            background-color: rgb(192, 145, 237);
+            border-color: #fff;
+        }
+
+        button:active {
+            background-color: #ffdb8d;
+            border-color: #fff;
+        }
+
+        input[type=radio] {
+            margin-left: 15px;
+            display: inline - block;
+            margin-right: 5px;
+            /* vertical-align: middle; */
+        }
+
+        body {
+            /* background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(https://i0.hdslb.com/bfs/new_dyn/9a4c7360908f1b32f56894b93cafaa15224697356.jpg); */
+            background-color: rgb(213, 237, 254);
+            /* opacity: 0.5; */
+            background-size: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-blend-mode: soft-light;
+        }
+
+        .head {
+            margin: 40px 0px;
+            text-align: center;
+            color: rgb(47, 47, 47);
+            border-radius: 10px;
+        }
+
+        .login {
+            text-align: center;
+            background-color: #ffffff;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .information {
+            padding: 30px 15px;
+            background-color: #ffffff;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .block2 {
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            opacity: 0.9;
+            width: 400px;
+            height: 480px;
+            box-shadow: 0px 0px 4px #fff7ce;
+            border-radius: 10px;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+        }
+
+        /* 忘记密码与注册分栏 */
+        #forget_password {
+            float: left;
+            width: 25%;
+            padding: 0px 0px 0px 5px;
+        }
+
+        #register {
+            float: right;
+            text-align: right;
+            width: 70%;
+            padding: 0px 5px 0px 0px;
+        }
+
+        #manager {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">
+        <h1>航班查询系统</h1>
+
+    </div>
+
+    <div class="block2">
+        <div class="login">
+            <h2>用户登录</h2>
+            <h3>Login</h3>
+        </div>
+        <div class="information">
+            <script>
+                function setCookie(cphone, cvalue) {     //, exdays
+                    //var d = new Date();
+                    //d.setTime(d.getTime() + (exdays*24*60*60*1000));
+                    //var expires = "expires=" + d.toGMTString();
+                    document.cookie = cphone + "=" + cvalue + ";" + ";path=/"; // + expires
+                }
+                function encryption() {
+                    // setCookie("phone", document.getElementById("phone").value);
+                    // var pwd = document.getElementById("password");
+                    // pwd.value = md5(pwd.value);
+                    // console.log(pwd.value);
+                    var name = document.getElementById("phone");
+                    var pwd = document.getElementById("password");
+                    if (name.value == 'cr' && pwd.value == '20281105') {
+                        alert("登录成功！");
+                        return true;
+                    }
+                    else {
+                        alert("登陆失败！");
+                        return false;
+                    }
+
+                }
+            </script>
+            <!-- <form id="form" action="User_Login_Servlet" method="post" onsubmit="return encryption()"> -->
+            <form id="form" onsubmit="return encryption()">
+                <center><label>用户名 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; 输入cr</label></center>
+                <center><input required type="tel" , name="phone" , id="phone"></center><br /><br />
+                <center><label>密码 输入20281105</label></center>
+                <center><input required type="password" , name="password" , id="password"></center><br />
+                <center><button type="submit">提交</button></center>
+            </form>
+
+            <br /><br />
+            <label id="forget_password">
+                <a href="./User_update_pwd.jsp">
+                    <label>忘记密码？</label>
+                </a>
+            </label>
+            <label id="register">
+                <a href="./User_regis.jsp">
+                    <label>没有账户？点此注册</label>
+                </a>
+            </label>
+            <br /><br />
+            <label id="manager">
+                <a href="./Mang_login.jsp">
+                    <center><label>管理员登录点击这里</label></center>
+                </a>
+            </label>
+        </div>
+</body>
+
+</html>

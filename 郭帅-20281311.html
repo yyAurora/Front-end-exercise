@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>美团外卖登录</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+         
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 100px;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #FFD161;
+            border: none;
+            color: white;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .fail-message{
+            padding: 10px;
+            text-align: center;
+            background-color: #c3e6cb;
+            color: red;
+        }
+        .faily-message{
+            padding: 10px;
+            text-align: center;
+            background-color: #c3e6cb;
+            color: red;
+        }
+        .success-message {
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #FFD161;
+            text-align: center;
+            color: #177aa8;
+            border-radius: 4px;
+            border: 1px solid #c3e6cb;
+        }
+
+        .kk a{
+            display: flex;
+            justify-content: flex-end;
+            color: black;
+            text-decoration: none;
+            
+
+        }
+        .image {
+            padding:10px;
+            width: 190x;
+            height: 31px;
+        }
+        .checkbox {
+        width: 15px;
+        height: 15px;
+        border: 1px solid #000;
+        margin-right: 15px;
+        margin-left: 20px; /* 将左边距设置为 5px */
+        cursor: pointer;
+        background-color: #fff;
+        display: inline-block;
+        }
+        .fade-text {
+       color: rgba(0, 0, 0, 0.4); /* 使用 RGBA 颜色值设置文本颜色透明度为 0.7 */
+        }
+
+        .checkbox.checked::after {
+        content: '\2713'; /* Unicode 编码，表示勾号 */
+        display: block;
+        font-size: 20px;
+        font-weight: bold; /* 将字体加粗 */
+        color: #000;
+        text-align: center;
+        line-height: 20px;
+}
+    </style>
+</head>
+<body>
+    <div>
+        <img src="https://w.meituan.net/v1/mss_0e4451a82e1d428f9fc3b99c0b3ebf15/waimai-e-fe-new-574503a2/production/images/logo-5496ba2ea8.webp" alt="这是美团商标" class="image">
+    </div>
+
+    <div class="container">
+        <h3>账号登陆</h3>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="username">用户名:</label>
+                <input type="text" id="username" name="username">
+            </div>
+            <div class="form-group">
+                <label for="password">密码:</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <div class="kk">
+                <a href="#">忘记账号/密码</a><br><br>
+            </div>
+            <div class="checkbox" onclick="toggleCheckbox()"></div>
+            <label for="checkbox" class="fade-text">我已阅读并同意《美团外卖商家隐私协议》</label><br><br>
+            <button class="btn" type="submit">登录</button>
+        </form>
+        <div id="success-message" class="success-message" style="display: none;">登陆成功！</div>
+        <div id="faily-message" class="faily-message" style= "display:none;">请输入正确的账号和密码！</div>
+        <div id="fail-message" class="fail-message" style= "display:none;">请输入账号和密码！</div>
+    <script> 
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault(); //阻止事件的默认行为
+
+            // 固定的账号和密码。
+            var hardcodedUsername = "guoshuai";
+            var hardcodedPassword = "020120";
+
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (username === hardcodedUsername && password === hardcodedPassword) {
+                document.getElementById("success-message").style.display = "block";
+                document.getElementById("username").addEventListener("input", function() {
+                document.getElementById("success-message").style.display = "none";
+            });
+            }
+            
+            else if (username.trim() === "") {
+            document.getElementById("fail-message").style.display = "block";
+            document.getElementById("username").addEventListener("input", function() {
+            document.getElementById("fail-message").style.display = "none";
+            });
+            }
+            else{
+                document.getElementById("faily-message").style.display = "block";
+            document.getElementById("username").addEventListener("input", function() {
+            document.getElementById("faily-message").style.display = "none";
+            });
+            }
+            
+        });
+        function toggleCheckbox() {
+        const checkbox = document.querySelector('.checkbox');
+        checkbox.classList.toggle('checked');
+}
+    </script>
+</body>
+</html>

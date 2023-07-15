@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>登录页面</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			background-color: #efefef;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		
+		form {
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+			max-width: 400px;
+			margin: 20px auto;
+		}
+		
+		label {
+			display: block;
+			margin-bottom: 10px;
+		}
+		
+		input[type="text"],
+		input[type="password"] {
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			margin-bottom: 20px;
+			box-sizing: border-box;
+		}
+		
+		input[type="submit"] {
+			background-color: #5b97e6;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			margin-right: 10px;
+		}
+		
+		input[type="submit"]:hover {
+			background-color: #5b97e6;
+		}
+		
+		input[type="button"] {
+			background-color: #ddd;
+			color: #333;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		
+		input[type="button"]:hover {
+			background-color: #ccc;
+		}
+		
+		.btn-group {
+			margin-top: 20px;
+		}
+		
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+		}
+		
+		.alert {
+			background-color: #f44336;
+			color: #fff;
+			padding: 10px;
+			border-radius: 5px;
+			text-align: center;
+			margin-top: 10px;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<h1>欢迎登录</h1>
+	<form method="post" action="" onsubmit="return validateForm()">
+		<label for="username">用户名：</label>
+		<input type="text" id="username" name="username" placeholder="请输入用户名" required>
+		
+		<label for="password">密码：</label>
+		<input type="password" id="password" name="password" placeholder="请输入密码" required>
+		
+		<div class="btn-group">
+			<input type="submit" value="登录">
+			<input type="button" value="注册" onclick="location.href='register.html'">
+		</div>
+	</form>
+	
+	<div id="alertBox" class="alert"></div>
+	
+	<script>
+		// 验证表单
+		function validateForm() {
+			var username = document.getElementById("username").value;
+			var password = document.getElementById("password").value;
+			
+			// 判断用户名和密码是否正确
+			if (username !== "admin" || password !== "123456") {
+				// 显示提示框
+				showAlert("用户名或密码错误！");
+				return false;
+			}
+			
+			return true;
+		}
+		
+		// 显示提示框
+		function showAlert(message) {
+			var alertBox = document.getElementById("alertBox");
+			alertBox.innerHTML = message;
+			alertBox.style.display = "block";
+			setTimeout(function() {
+				alertBox.style.display = "none";
+			}, 2000);
+		}
+	</script>
+</body>
+</html>

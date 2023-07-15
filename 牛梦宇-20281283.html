@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<head>
+    <meta charset = "utf-8">
+    <title>
+        Login page. by 20281283
+    </title>
+    
+</head>
+<style>
+    body{
+        background-color: gainsboro;
+    }
+
+    .login{
+        text-align: center;
+        font-family: Consolas;
+        background-color: beige;
+        border-radius: 20px;
+        width: 300px;
+        height: 150px;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left:0;
+        right:0;
+        bottom:0;
+        border-radius: 20px;
+        border-color:antiquewhite;
+
+    }
+
+    .login .title{
+        font-size: large;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .login .username,.password{
+        padding: 5px 12px;
+        line-height: 20px;
+    }
+
+    .login input::-webkit-input-placeholder
+    {
+        font-size: 10px;
+        font-family: Consolas;
+    }
+
+    .login input{
+        border-radius: 5px;
+        border-color:antiquewhite;
+    }
+
+    .login .login-button{
+        margin-top: 5px;
+    }
+
+    .login button{
+        border-radius: 5px;
+        border-color:antiquewhite;
+        font-size: 10px;
+        font-family: Consolas;
+    }
+
+</style>
+<script>
+    function check_information(){
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        if (username == "ntopia" && password == "000000"){
+            window.alert("Login successfully.");
+        }
+        else
+        {
+            window.alert("Login failed.")
+        }
+    }
+</script>
+
+<body>
+    <div class = "login">
+        <div class = "title">
+            <span>User Login</span>
+        </div>
+
+        <div class = "form-input">
+            <form>
+                <div class = "username">
+                    <input type ="text" id = "username" placeholder="username">
+                </div>
+
+                <div class = "password">    
+                    <input type ="password" id ="password" placeholder="password">
+                </div>
+
+                <div class = "login-button">
+                    <button type="button" onclick="check_information()">Login</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</body>
+
