@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!-- 刘嘉鹏 20281319 -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Register</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background: white url(https://remilia-bucket01.oss-cn-beijing.aliyuncs.com/my_pic/background.png);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .container {
+        width: 400px;
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgb(21, 255, 0);
+    }
+
+    .tabs {
+        display: flex;
+    }
+
+    .tabs button {
+        flex: 1;
+        padding: 15px;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .tabs button:hover {
+        background-color: #f1f1f1;
+    }
+
+    .tabs button.active {
+        background-color: #ccc;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .register-form {
+        display: none;
+    }
+
+    .form-control {
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    .form-control label {
+        width: 50px;
+        display: block;
+        margin-top: 5px;
+        margin-left: 5px;
+        font-weight: bold;
+    }
+
+    .form-control input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .form-control input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+    }
+
+    .login_icon {
+        width: 20px;
+    }
+</style>
+<body>
+<div class="container">
+    <div class="tabs">
+        <button id="loginButton" class="active">账号登录</button>
+        <button id="registerButton">注册</button>
+    </div>
+    <div class="content">
+        <form id="loginForm" class="login-form">
+            <div class="form-control">
+                <label for="loginUsername">
+                    <img class="login_icon" src="https://remilia-bucket01.oss-cn-beijing.aliyuncs.com/my_pic/user_icon.svg" alt="用户名">
+                </label>
+                <input type="text" name="username" id="loginUsername" placeholder="请输入用户名" required>
+            </div>
+            <div class="form-control">
+                <label for="loginPassword">
+                    <img class="login_icon" src="https://remilia-bucket01.oss-cn-beijing.aliyuncs.com/my_pic/password_icon.svg" alt="密码">
+                </label>
+                <input type="password" name="password" id="loginPassword" placeholder="请输入密码" required
+                       autocomplete="off">
+            </div>
+            <div class="form-control">
+                <input type="submit" value="登录" onclick="loginCheck()">
+                <input type="reset" value="重置">
+            </div>
+        </form>
+        <form id="registerForm" class="register-form">
+            <div class="form-control">
+                <label for="registerName">
+                    <img class="login_icon" src="https://remilia-bucket01.oss-cn-beijing.aliyuncs.com/my_pic/user_icon.svg" alt="用户名">
+                </label>
+                <input type="text" name="username" id="registerName" required placeholder="输入用户名">
+            </div>
+            <div class="form-control">
+                <label for="registerEmail">
+                    <img class="login_icon" src="https://remilia-bucket01.oss-cn-beijing.aliyuncs.com/my_pic/email_icon.svg" alt="邮箱">
+                </label>
+                <input type="email" name="email" id="registerEmail" required placeholder="输入邮箱">
+            </div>
+            <div class="form-control">
+                <label for="registerPassword">
+                    <img class="login_icon" src="https://remilia-bucket01.oss-cn-beijing.aliyuncs.com/my_pic/password_icon.svg" alt="密码">
+                </label>
+                <input type="password" name="password" id="registerPassword" required autocomplete="off"
+                       placeholder="输入密码">
+            </div>
+<!--            <div class="form-control">
+                <label for="registerPasswordCheck">
+                    <img class="login_icon" src="images/password_icon.svg" alt="密码">
+                </label>
+                <input type="password" name="passwordCheck" id="registerPasswordCheck" required autocomplete="off"
+                       placeholder="确认密码">
+            </div>-->
+            <div class="form-control">
+                <input type="submit" value="注册" onclick="registerCheck()">
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    const my_username = "20281319";
+    const my_password = "123456";
+
+    function loginCheck() {
+        const form = document.querySelector('#loginForm');
+        const formData = new FormData(form);
+        const username = formData.get('username');
+        const password = formData.get('password');
+        console.log(username + ": " + password);
+        if (username === my_username && password === my_password) {
+            window.alert("用户名密码校验成功！");
+        } else {
+            window.alert("用户名或密码错误！")
+        }
+    }
+
+    function registerCheck() {
+        const form = document.querySelector('#registerForm');
+        const formData = new FormData(form);
+        const username = formData.get('username');
+
+        const password = formData.get('password');
+        const passwordCheck = password;
+        // const passwordCheck = formData.get('passwordCheck');
+        const email = formData.get('email');
+        console.log(username + " " + email + " " + password + " " + passwordCheck);
+        if (password !== passwordCheck) {
+            window.alert("两次输入的密码不一致，请核对后输入");
+        } else {
+            window.alert("注册信息如下:\n" + "用户名: " + username + "\n邮箱: " + email + "\n密码: " + password);
+        }
+    }
+
+    const loginButton = document.getElementById('loginButton');
+    const registerButton = document.getElementById('registerButton');
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+
+    loginButton.addEventListener('click', () => {
+        loginButton.classList.add('active');
+        registerButton.classList.remove('active');
+        loginForm.style.display = 'block';
+        registerForm.style.display = 'none';
+    });
+
+    registerButton.addEventListener('click', () => {
+        registerButton.classList.add('active');
+        loginButton.classList.remove('active');
+        registerForm.style.display = 'block';
+        loginForm.style.display = 'none';
+    });
+</script>
+
+</body>
+</html>
