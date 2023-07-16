@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 样式：边框的表单 */
+    form {
+      border: 3px solid #f1f1f1;
+    }
+
+    /* 样式：全宽度输入框 */
+    input[type=text],
+    input[type=password] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    /* 样式：所有按钮的通用样式 */
+    button {
+      background-color: #04AA6D;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    /* 样式：按钮的鼠标悬停效果 */
+    button:hover {
+      opacity: 0.8;
+    }
+
+    /* 样式：取消按钮的额外样式（红色） */
+    .cancelbtn {
+      width: auto;
+      padding: 10px 18px;
+      background-color: #f44336;
+    }
+
+    /* 样式：容器内部的头像图像居中 */
+    .imgcontainer {
+      text-align: center;
+      margin: 24px 0 12px 0;
+    }
+
+    /* 样式：头像图像 */
+    img.avatar {
+      width: 40%;
+      border-radius: 50%;
+    }
+
+    /* 样式：容器的内边距 */
+    .container {
+      padding: 16px;
+    }
+
+    /* 样式：“忘记密码”文本 */
+    span.psw {
+      float: right;
+      padding-top: 16px;
+    }
+
+    /* 样式：在超小屏幕上改变span和取消按钮的样式 */
+    @media screen and (max-width: 300px) {
+      span.psw {
+        display: block;
+        float: none;
+      }
+
+      .cancelbtn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="imgcontainer">
+    <img src="https://img.sj33.cn/uploads/202301/7-23011H0105JD.png" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <!-- 输入框：用户名 -->
+    <input type="text" placeholder="Enter Username" id="uname" required>
+
+    <label for="psw"><b>Password</b></label>
+    <!-- 输入框：密码 -->
+    <input type="password" placeholder="Enter Password" id="psw" required>
+
+    <!-- 按钮：登录 -->
+    <button type="submit" onclick="login()">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <!-- 按钮：取消 -->
+    <button type="button" class="cancelbtn">Cancel</button>
+    <!-- “忘记密码”文本 -->
+    <span class="psw">Forgot <a href="#">password?</a></span>
+  </div>
+</body>
+
+<script>
+  // 登录函数
+  function login() {
+    var username = document.getElementById("uname").value;
+    var psw = document.getElementById("psw").value;
+
+    // 检查用户名和密码是否匹配
+    if (username == "shi" && psw == "123") {
+      alert("ok");
+    } else {
+      alert("no");
+    }
+  }
+</script>
+
+</html>
