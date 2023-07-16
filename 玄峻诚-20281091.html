@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>登录</title>
+  <script>
+    function handleLogin(event) {
+      event.preventDefault(); 
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+      if (username === "libester" && password === "miku1112") {
+        alert("登录成功");
+      } else {
+        alert("用户名或密码错误");
+      }
+    }
+  </script>
+</head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+  }
+
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+
+  form {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+</style>
+
+<body>
+  <h2>登录</h2>
+  <form id="loginForm" onsubmit="handleLogin(event)">
+    <label for="username">用户名:</label>
+    <input type="text" id="username" name="username" required><br><br>
+    <label for="password">密码:</label>
+    <input type="password" id="password" name="password" required><br><br>
+    <input type="submit" value="登录">
+  </form>
+</body>
+</html>
