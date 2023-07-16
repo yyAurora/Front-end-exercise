@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+  <meta charset="utf-8">
+  <title>账号登录</title>
+</head>
+ 
+<style>
+    	body{
+		font-size: 20px;
+		margin: 0px;
+		padding: 0px;
+		background: url("logo.gif");
+		background-repeat: no-repeat;
+		background-position: right,bottom;
+		background-color:beige;
+	}
+	input {
+		border: 1px solid black;
+		border-radius:20px;
+		line-height: 25px;
+	}
+	.btn{
+		width:70px;
+		height:30px;
+		color:blue;
+		font-size:28sp;
+		border:1px solid black;
+		border-radius:20px;
+	}
+	 .btn:link .btn:VISITED {
+		background-color: #F0F0F0;
+    } 
+    .btn:HOVER {
+		background-color:aliceblue;
+
+	}
+    
+</style>
+
+<body>
+  <label>账号</label><br>
+  <input id="user"><br>
+  <label>密码</label><br>
+  <input id="password"><br><br>
+  <button onclick="myFunction()">登录</button>
+</body>
+<script>
+  function myFunction() {
+    if (document.getElementById("user").value == "user") {
+      if (document.getElementById("password").value == "123123") {
+        alert("登录成功");
+      }
+      else {
+        alert("密码错误");
+      }
+    }
+    else {
+      alert("账号密码均有误");
+    }
+  }
+</script>
+ 
+</html>

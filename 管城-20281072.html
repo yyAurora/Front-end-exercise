@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .login {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url(https://scott-gc.oss-cn-hangzhou.aliyuncs.com/img/202306041747308.jpg);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .login__card {
+      width: 400px;
+      background-color: rgba(245, 245, 245, 0.9);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .login__title {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .login__form {
+      margin-top: 20px;
+    }
+
+    .login__form label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    .login__form input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .login__button {
+      width: 100%;
+      padding: 10px;
+      border-radius: 20px;
+      background-color: #007aff;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .login__button:hover {
+      background-color: #0056b3;
+    }
+
+    .login__links {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 14px;
+      color: #999;
+      cursor: pointer;
+    }
+
+    .login__links span {
+      margin: 0 10px;
+    }
+
+    .login__links span:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login">
+    <div class="login__card">
+      <h2 class="login__title">用户登录</h2>
+      <form id="loginForm" class="login__form">
+        <label for="userName">用户名</label>
+        <input id="userName" type="text" placeholder="请输入用户名" />
+
+        <label for="password">密码</label>
+        <input id="password" type="password" placeholder="请输入密码" />
+
+        <button type="button" onclick="login()" class="login__button">登录</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function login() {
+      var userNameInput = document.getElementById("userName");
+      var passwordInput = document.getElementById("password");
+
+      var userName = userNameInput.value;
+      var password = passwordInput.value;
+      if (userName === '管城' && password === '20281072')
+        alert("登录成功");
+      else
+        alert("登录失败");
+    }
+  </script>
+</body>
+</html>

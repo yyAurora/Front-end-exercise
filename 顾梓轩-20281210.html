@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>疯狂星期四</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f1faee;
+            color: #1d3557;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 1.6em;
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            overflow: hidden;
+            display: flex;
+        }
+
+        #main-header {
+            background-color: #a8dadc;
+        }
+
+        #main-header ul {
+            padding: 0;
+            list-style: none;
+            margin-left: auto;
+        }
+
+        #main-header li {
+            display: inline;
+        }
+        
+        #main-header a {
+            color: #457b9d;
+            text-decoration: none;
+        }
+
+        .logo {
+            background-color: #e63946;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .logo > em {
+            display: flex;
+            color: #f1faee;
+            text-align: center;
+            padding-top: 18px;
+            padding-right: 12px;
+            justify-content: center;
+            font-size: 60px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .logo-text {
+            color: #1d3557;
+            padding-left: 5px;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        .login-box {
+            margin: auto;
+            padding-top: 100px;
+            width: 300px;
+        }
+
+        .tab-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .tab-bar {
+            background-color: #1d3557;
+            padding: 5px ;
+            border-radius: 5px;
+        }
+
+        .input-container {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 30px;
+            padding-bottom: 10px;
+        }
+
+        .error {
+            color: #e63946;
+        }
+
+        .input {
+            border: none;
+            outline: none;
+            width: 100%;
+        }
+
+        .login-bottom > a {
+            display: flex;
+            text-decoration: none;
+            color: #457b9d;
+            padding-top: 10px;
+            justify-content: right;
+        }
+
+        .protocol {
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+            font-size: 13px;
+        }
+
+        .protocol > span {
+            color: #457b9d;
+            opacity: 70%;
+        }
+
+        .submit-button {
+            background-color: #e63946;
+            width: 100%;
+            height: 40px;
+            border-radius: 4px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        #main-footer {
+            background: #1d3557;
+            color: #f1faee;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root" class="app-root">
+        <header id="main-header">
+            <div class="container">
+
+                <div class="logo"><em>K</em></div>
+                <div class="logo-text"><strong>开封菜</strong> | 周四绝对不吃金拱门</div>
+
+                <ul>
+                    <li><a href="#">Link 1</a></li>
+                    <li><a href="#">Link 2</a></li>
+                </ul>
+
+            </div>
+        </header>
+
+        <section class="content">
+        <div class="container">
+        <div class="login-box">
+
+            <div class="tab-container">
+                <div class="tab-item active">账号登录
+                    <div class="tab-bar"></div>
+                </div>
+    
+                <div class="tab-item">还没写的登录</div>
+            </div>
+                    
+
+            <div class="input-container">
+                <label for="account"><i class="material-icons">&#xe853;</i></label>
+                <input id="account" class="input" type="text" placeholder="输入账号">
+            </div>
+            <div class="input error"></div>
+
+            <div class="input-container">
+                <label for="password" class="icon"><i class="material-icons">&#xe0da;</i></label>
+                <input id="password" class="input" type="password" placeholder="输入密码" autocomplete="off">
+            </div>
+            <div class="input error"></div>
+
+            <div class="login-bottom">
+                <a href="#">忘记账号/密码</a>
+            </div>
+
+            <div class="protocol">
+                <label for="checkbox"></label>
+                <input id="checkbox" type="checkbox">
+                <span>我已同意并阅读开封菜菜单</span>
+            </div>
+
+            <button type="submit" class="submit-button">登录</button>
+
+        </div>
+        </div>
+
+        </section>
+
+        <footer id="main-footer">
+            &copy; 2023 疯狂星期四!
+        </footer>
+    </div>
+
+    <script>
+        const accountsSaved = [{
+            userName : 'timefordinner',
+            password : 'eatKFC'
+        }, {
+            userName : 'eatKFC',
+            password : 'Please'
+        }, {
+            userName : '1',
+            password : '1'
+        }];
+        const userName = document.querySelector('#account');
+        const password = document.querySelector('#password');
+        const checkbox = document.querySelector('#checkbox');
+        const button = document.querySelector('.submit-button');
+        const errorMessages = document.querySelectorAll('.error');
+
+        
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            ClearErrorMessages();         
+            if (HaveError()) return;
+
+            const account = accountsSaved.filter((account) => {
+                return account.userName === userName.value && account.password === password.value;
+            })[0];
+
+            if (!account) {
+                errorMessages[0].textContent = '用户名和密码错误!';
+            } else {
+                alert('登录成功!');
+            }
+        });
+        
+
+        function ClearErrorMessages() {
+            errorMessages.forEach(message => {
+                message.textContent = '';
+            });
+        }
+
+        function HaveError() {
+            if (checkbox.checked === false) { errorMessages[1].textContent = '请先勾选底部菜单协议'; return true; }
+            if (userName.value === '') errorMessages[0].textContent = '账号为空!';
+            if (password.value === '') errorMessages[1].textContent = '密码为空!';
+            if (userName.value === '' || password.value === '') return true;
+            return false;
+        }
+    </script>
+</body>
+</html>

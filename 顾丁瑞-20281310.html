@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>登录页面</title> 
+  <script language="javascript">
+    window.onload = function() {
+    createCode()
+    }
+    var code; //在全局定义验证码 
+    function createCode() {
+        code = "";
+        var codeLength = 4; //验证码的长度 
+        var checkCode = document.getElementById("inputcode");
+        var random = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
+        'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'); //随机数 
+        for(var i = 0; i < codeLength; i++) { //循环操作 
+            var index = Math.floor(Math.random() * 36); //取得随机数的索引（0~35） 
+            code += random[index]; //根据索引取得随机数加到code上 
+        }
+        checkCode.value = code; //把code值赋给验证码 
+    }
+    //校验验证码 
+    function validateLogin(){
+        var UserName = document.getElementById("username").value;
+        var Password = document.getElementById("password").value;
+        var inputCode = document.getElementById("text_code").value;
+        /*var sinputCode =document.frmLogin.inputcode.value ;  */
+        if ((UserName.length <= 0) || (UserName === "")){
+            alert("请输入用户名!");
+            return false ;
+        }
+        if ((Password.length <= 0) || (Password === "")){
+            alert("请输入密码!");
+            return false ;
+        }
+        if ((inputCode.length<= 0) || (inputCode === "")){
+            alert("请输入验证码!");
+            return false ;
+        }
+        if(UserName === "admin" && Password === "123456" && inputCode === code){
+            console.log(UserName);
+            console.log(Password);
+            console.log(inputCode);
+            console.log(code);
+            alert("登录成功！");
+        }
+        else{
+            alert("登录失败，请检查输入")
+        }
+    } 
+  </script>
+
+   <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            height: 100%;
+        }
+        body {
+            height: 100%;
+        }
+        .container {
+            height: 100%;
+            background-image: linear-gradient(to right, #999999, #330867);
+        }
+        .login-wrapper {
+            background-color: bisque;
+            width: 358px;
+            height: 588px;
+            border-radius: 15px;
+            padding: 0 50px;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .header {
+            font-size: 38px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 200px;
+        }
+        .input-item {
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+            border: 0;
+            padding: 10px;
+            border-bottom: 1px solid rgb(128,125,125);
+            font-size: 15px;
+            outline: none;
+        }
+        .input-item::placeholder {
+            text-transform: uppercase;
+        }
+        .btn {
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            margin-top: 40px;
+            background-image: linear-gradient(to right,#a6c1ee, #fbc2eb);
+            color: #fff;
+        }
+        .msg {
+            text-align: center;
+            line-height: 88px;
+        }
+        a {
+            text-decoration-line: none;
+            color: #abc1ee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-wrapper">
+            <div class="header">Login</div>
+            <div class="form-wrapper">
+                <input id="username" type="text" name="username" placeholder="username" class="input-item">
+                <input id="password" type="password" name="password" placeholder="password" class="input-item">
+                <td><label for="text_code">验证码:</label></td>
+                <td><input type="text" size="" name="text_code" id="text_code" /></td>
+                <td><input id="inputcode" type="button" οnclick="createCode()"></td>
+                <button class="btn" onclick="validateLogin()">Login</button>
+            </div>
+            <div class="msg">
+                Don't have account?
+                <a href="#">Sign up</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 300px;
+      margin: 0 auto;
+      margin-top: 100px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f8f8f8;
+    }
+
+    .container h2 {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label, input {
+      display: block;
+      width: 100%;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      width: auto;
+      float: right;
+    }
+    .error-message {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username">
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password">
+    </div>
+    <input type="submit" value="Login" onclick="login()">
+    <div id="error-message" class="error-message" style="display: none;"></div>
+  </div>
+
+  <script>
+    function login() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      // 此处的用户名和密码是硬编码，实际情况应该与后端进行验证
+      var validUsername = "admin";
+      var validPassword = "password";
+
+      if (username === validUsername && password === validPassword) {
+        alert("Login successful!");
+      } else {
+        var errorMessage = document.getElementById("error-message");
+        errorMessage.style.display = "block";
+        errorMessage.textContent = "Invalid username or password!";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* body 样式 */
+        body {
+            font-family: Arial;
+            margin: 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            opacity: 0.8;
+        }
+
+        /* 标题 */
+        .header {
+            padding: 80px;
+            text-align: center;
+            background: #1abc9c;
+            color: white;
+        }
+
+        /* 标题字体加大 */
+        .header h1 {
+            font-size: 40px;
+        }
+
+        /* 主要的内容区域 */
+        .main {
+            -ms-flex: 70%;
+            /* IE10 */
+            flex: 70%;
+            background-color: white;
+            padding: 20px;
+        }
+
+        /* 底部 */
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: #ddd;
+        }
+
+        /* 响应式布局 - 在屏幕设备宽度尺寸小于 700px 时, 让两栏上下堆叠显示 */
+        @media screen and (max-width: 700px) {
+            .row {
+                flex-direction: column;
+            }
+        }
+
+        /* 响应式布局 - 在屏幕设备宽度尺寸小于 400px 时, 让导航栏目上下堆叠显示 */
+        @media screen and (max-width: 400px) {
+            .navbar input {
+                float: none;
+                width: 100%;
+            }
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .input-field {
+            margin-bottom: 10px;
+        }
+
+        .input-field input[type="text"],
+        .input-field input[type="password"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 200px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>登录页面</h1>
+    </div>
+
+    <div class="main">
+        <h2 align="center">注册或登录</h2>
+        <form align="center">
+            请输入用户名：<div class="input-field"><br><input type="text" id="user_name" required /><br></div>
+            请输入用户密码：<div class="input-field"><br><input type="password" id="user_pass" required /><br></div>
+            <input type="submit" value="忘记密码" class="button">
+            <input type="button" onclick="login()" value="登陆" class="button">
+            <input type="submit" value="注册" class="button">
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        let user_info = [{
+            user_name: 'hxy',
+            user_pass: '20221068'
+        },
+        {
+            user_name: 'yhw',
+            user_pass: '20211054'
+        },
+        ]
+        function login() {
+            let user_name = document.getElementById('user_name').value;
+            let user_pass = document.getElementById('user_pass').value;
+            let account = user_info.filter(function (e) {
+                return e.user_name == user_name
+            })[0];
+            if (!account) {
+                alert('用户名不存在');
+            } else {
+                if (account.user_name == user_name && account.user_pass == user_pass) {
+                    alert('登陆成功');
+                } else {
+                    alert('密码错误');
+                }
+            }
+        }
+    </script>
+
+    <div class="footer">
+        <h2>Authored by: XiaoYun Hu 20221068</h2>
+    </div>
+
+</body>
+
+</html>

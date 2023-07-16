@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .login-container {
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .input-field {
+      margin-bottom: 10px;
+    }
+
+    .input-field label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .input-field input[type="text"],
+    .input-field input[type="password"] {
+      width: 95%;
+      padding: 5px;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 10px;
+      background-color: hwb(123 62% 11% / 0.877);
+      color: rgb(25, 101, 28);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="input-field">
+      <label for="username">用户名:</label>
+      <input type="text" id="username">
+    </div>
+    <div class="input-field">
+      <label for="password">密码:</label>
+      <input type="password" id="password">
+    </div>
+    <button class="login-btn" onclick="login()">Login</button>
+  </div>
+
+  <script>
+    function login() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      // 在这里写死用户名和密码的判断条件
+      var validUsername = "饭团宫";
+      var validPassword = "1107";
+
+      if (username === validUsername && password === validPassword) {
+        alert("登录成功!");
+      } else {
+        alert("Invalid username or password.");
+      }
+    }
+  </script>
+</body>
+</html>

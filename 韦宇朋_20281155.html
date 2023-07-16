@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>登录界面</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+    .logo {
+      display: inline-block;
+      width: 100px;
+      height: 32px;
+      
+      background: url(https://p0.meituan.net/travelcube/4efa22ffc4a6a49bbaea14e3c0bee86a1337.png) no-repeat;
+      background-size: contain;
+      text-indent: -9999px;
+    }
+    .login-box {
+      margin: 10% auto;
+      width: 400px;
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    .login-box h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+    .form-group input {
+      width: 100%;
+      height: 40px;
+      font-size: 16px;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+    .btn-login {
+      display: block;
+      width: 100%;
+      height: 40px;
+      font-size: 16px;
+      color: #fff;
+      background-color:greenyellow;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .btn-login:hover {
+      background-color: #009900;
+    }
+    .error-message {
+      font-size: 14px;
+      color: red;
+      margin-top: 5px;
+    }
+    .alert {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.2s;
+    }
+    .alert.show {
+      visibility: visible;
+      opacity: 1;
+    }
+    .alert-content {
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    .alert-content h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .alert-content p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    .btn-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+      color: silver;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .btn-close:hover {
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+        <a class="logo" href="#">美团</a>
+      </div>
+  <div class="login-box">
+    <h2>用户登录</h2>
+    <form id="login-form">
+      <div class="form-group">
+        <label for="username">用户名</label>
+        <input type="text" id="username" name="username" placeholder="请输入用户名">
+        <span id="username-error" class="error-message"></span>
+      </div>
+      <div class="form-group">
+        <label for="password">密码</label>
+        <input type="password" id="password" name="password" placeholder="请输入密码">
+        <span id="password-error" class="error-message"></span>
+      </div>
+      <button type="submit" class="btn-login">登录</button>
+    </form>
+  </div>
+  
+  <div id="alert-success" class="alert">
+    <div class="alert-content">
+      <h3>登录成功</h3>
+      <p>欢迎回来， {{username}}！</p>
+      <button class="btn-close">&times;</button>
+    </div>
+  </div>
+  
+  <div id="alert-failure" class="alert">
+    <div class="alert-content">
+      <h3>登录失败</h3>
+      <p>用户名或密码错误，请重新输入。</p>
+      <button class="btn-close">&times;</button>
+    </div>
+  </div>
+  
+  <script>
+    // 获取表单和输入框元素
+    const loginForm = document.getElementById('login-form');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    
+    // 获取错误提示元素
+    const usernameError = document.getElementById('username-error');
+    const passwordError = document.getElementById('password-error');
+    
+    // 获取弹窗和关闭按钮元素
+    const alertSuccess = document.getElementById('alert-success');
+    const alertFailure = document.getElementById('alert-failure');
+    const btnCloseSuccess = alertSuccess.querySelector('.btn-close');
+    const btnCloseFailure = alertFailure.querySelector('.btn-close');
+    
+    // 表单提交事件处理函数
+    loginForm.addEventListener('submit', function(event) {
+      event.preventDefault(); // 阻止表单默认提交行为
+      
+      // 验证用户名和密码是否为空
+      let isValid = true;
+      if (usernameInput.value.trim() === '') {
+        usernameError.textContent = '用户名不能为空';
+        isValid = false;
+      } else {
+        usernameError.textContent = '';
+      }
+      if (passwordInput.value.trim() === '') {
+        passwordError.textContent = '密码不能为空';
+        isValid = false;
+      } else {
+        passwordError.textContent = '';
+      }
+      
+      if (isValid) {
+        // 验证用户名和密码是否正确
+        if (usernameInput.value.trim() === 'wyp' && passwordInput.value === '123456') {
+          // 登录成功，显示成功的弹窗
+          const username = usernameInput.value.trim();
+          alertSuccess.querySelector('p').textContent = `欢迎回来， ${username}！`;
+          alertSuccess.classList.add('show');
+          // 清除表单内容
+          usernameInput.value = '';
+          passwordInput.value = '';
+        } else {
+          // 登录失败，显示失败的弹窗
+          alertFailure.classList.add('show');
+          // 清除密码输入框内容
+          passwordInput.value = '';
+        }
+      }
+    });
+    
+    // 关闭按钮点击事件处理函数
+    btnCloseSuccess.addEventListener('click', function() {
+      alertSuccess.classList.remove('show');
+    });
+    btnCloseFailure.addEventListener('click', function() {
+      alertFailure.classList.remove('show');
+    });
+  </script>
+</body>
+</html>
