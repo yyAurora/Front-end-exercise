@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login and Register</title>
+ 	<link rel="stylesheet" type="text/css" href="css/styles.css"/>
+  <style>
+     * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      background: url(../img/bg.jpeg);
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    
+    .container {
+      width: 400px;
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .tabs {
+      display: flex;
+    }
+    
+    .tabs button {
+      flex: 1;
+      padding: 15px;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .tabs button:hover {
+      background-color: #f1f1f1;
+    }
+    
+    .tabs button.active {
+      background-color: #ccc;
+    }
+    
+    .content {
+      padding: 20px;
+    }
+    
+    .register-form {
+      display: none;
+    }
+    
+    .form-control {
+      margin-bottom: 20px;
+    }
+    
+    .form-control label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    
+    .form-control input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    
+    .form-control input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+
+  <script>
+    const loginButton = document.getElementById('loginButton');
+    const registerButton = document.getElementById('registerButton');
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    
+    loginButton.addEventListener('click', () => {
+      loginButton.classList.add('active');
+      registerButton.classList.remove('active');
+      loginForm.style.display = 'block';
+      registerForm.style.display = 'none';
+    });
+    
+    registerButton.addEventListener('click', () => {
+      registerButton.classList.add('active');
+      loginButton.classList.remove('active');
+      registerForm.style.display = 'block';
+      loginForm.style.display = 'none';
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="tabs">
+      <button id="loginButton" class="active">Login</button>
+      <button id="registerButton">Register</button>
+    </div>
+    <div class="content">
+      <form id="loginForm" class="login-form">
+        <div class="form-control">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" required>
+        </div>
+        <div class="form-control">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" required>
+        </div>
+        <div class="form-control">
+          <input type="submit" value="Login">
+        </div>
+      </form>
+      <form id="registerForm" class="register-form">
+        <div class="form-control">
+          <label for="registerName">Name</label>
+          <input type="text" id="registerName" required>
+        </div>
+        <div class="form-control">
+          <label for="registerEmail">Email</label>
+          <input type="email" id="registerEmail" required>
+        </div>
+        <div class="form-control">
+          <label for="registerPassword">Password</label>
+          <input type="password" id="registerPassword" required>
+        </div>
+        <div class="form-control">
+          <input type="submit" value="Register">
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="js/script.js">
+  </script>
+</body>
+</html>
+
