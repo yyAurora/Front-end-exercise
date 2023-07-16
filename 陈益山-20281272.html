@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>登录与注册页面</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      width: 400px;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .container h2 {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .form-group button {
+      width: 100%;
+      padding: 8px;
+      font-size: 16px;
+      background-color: #4caf50;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .toggle-button {
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="form-container">
+    <h2 id="form-title">用户登录</h2>
+    <form id="login-form">
+      <div class="form-group">
+        <label for="username">用户名:</label>
+        <input type="text" id="username" name="username" placeholder="请输入用户名" required>
+      </div>
+      <div class="form-group">
+        <label for="password">密码:</label>
+        <input type="password" id="password" name="password" placeholder="请输入密码" required>
+      </div>
+      <div class="form-group">
+        <button type="submit">登录</button>
+      </div>
+    </form>
+    <form id="register-form" style="display: none;">
+      <div class="form-group">
+        <label for="new-username">用户名:</label>
+        <input type="text" id="new-username" name="new-username" placeholder="请输入用户名" required>
+      </div>
+      <div class="form-group">
+        <label for="new-password">密码:</label>
+        <input type="password" id="new-password" name="new-password" placeholder="请输入密码" required>
+      </div>
+      <div class="form-group">
+        <button type="submit">注册</button>
+      </div>
+    </form>
+    <div class="toggle-button">
+      <button id="toggle-form-button">切换到注册</button>
+    </div>
+  </div>
+
+  <script>
+    var loginForm = document.getElementById("login-form");
+    var registerForm = document.getElementById("register-form");
+    var formTitle = document.getElementById("form-title");
+    var toggleFormButton = document.getElementById("toggle-form-button");
+
+    toggleFormButton.addEventListener("click", function() {
+      if (loginForm.style.display === "none") {
+        // 切换到登录表单
+        loginForm.style.display = "block";
+        registerForm.style.display = "none";
+        formTitle.innerText = "用户登录";
+        toggleFormButton.innerText = "切换到注册";
+      } else {
+        // 切换到注册表单
+        loginForm.style.display = "none";
+        registerForm.style.display = "block";
+        formTitle.innerText = "用户注册";
+        toggleFormButton.innerText = "切换到登录";
+      }
+    });
+
+    loginForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+      // 验证用户名和密码
+      var validUsername = "admin";
+      var validPassword = "password";
+
+      if (username === validUsername && password === validPassword) {
+        alert("登录成功！");
+      } else {
+        alert("用户名或密码不正确！");
+      }
+    });
+
+    registerForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+      var newUsername = document.getElementById("new-username").value;
+      var newPassword = document.getElementById("new-password").value;
+      // 进行注册逻辑处理
+      alert("注册成功！");
+    });
+  </script>
+</body>
+</html>
