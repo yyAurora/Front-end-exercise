@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign in</title>
+</head>
+<style>
+    .first {
+        background-color: red;
+        height: 50px;
+    }
+    .second {
+        background-color: blue;
+        border: 5px solid darkblue;
+        height: 700px;
+        width: 500px;
+        margin: auto ;
+    }
+    .second_fr{
+        background-color: gray;
+        height: 500px;
+        width: 450px;
+        margin: auto;
+        margin-top: 100px;
+    }
+    .second_pi{
+        border: 1px solid darkblue;
+        
+        height: 100px;
+        width: 450px;
+    }
+    .second_pi2{
+        display: grid;
+        grid-template-columns: 150px 150px 150px;
+    }
+    .sec_1{
+        border: 1px solid darkblue;
+        height: 100px;
+        width: 150px;
+    }
+    .sec_11{
+        font-size: x-large;
+        margin-top: 30%;
+    }
+    .sec_21{
+       
+        margin-top: 7.5%;
+    }
+    .sec_22{
+        height: 50px;
+        width: 400px;
+        margin-top: 20px;
+    }
+    .sec_31{
+        background-image: url(null.jpg);
+        display: inline-block;
+        height: 17px;
+        width: 17px;
+        background-size: 14px 14px;
+        
+    }
+    .sec_32{
+        border: 1px solid darkblue; 
+        margin-top: 60px;
+        margin-left: 20px;
+        width: 250px;
+    }
+    .sec_41{
+        width: 400px;
+        background-color: yellow;
+        font-size: x-large;
+        margin-left: 25px;
+    }
+    .sec_42{
+        
+        margin-left: 200px;
+        margin-bottom: 0%;
+    }
+    
+</style>
+<body>
+    <div class="first">
+        <img src="null.jpg" style="width: 30px;height: 30px;" alt="">
+    </div>
+    <div class="second">
+        <div class="second_fr">
+            <div class="second_pi second_pi2">
+                <div class="sec_1">
+                    <div class="sec_11" id="d1">
+                        账号登录
+                    </div>
+                    <div class="sec_12">
+                        
+                    </div>
+                </div>
+                <div class="sec_1">
+                    <div class="sec_11" id="d2">
+                        验证码登录
+                    </div>
+                    <div class="sec_12">
+
+                    </div>
+                </div>
+            </div>
+            <div class="second_pi">
+                <img src="login1.png" class="sec_21" alt="">
+                <input type="text" class="sec_22" id="1" value="输入用户名">
+            </div>
+            <div class="second_pi">
+                <img src="login2.png" class="sec_21" alt="">
+                <input type="text" class="sec_22" id="2" value="输入密码">
+            </div>
+            <div class="second_pi">
+                <a href="null.jpg" style="color: black;margin-left: 330px;">忘记账号/密码</a>
+                <div class="sec_32" >
+                    <span  class="sec_31"></span>已阅并同意	
+                    <a href="null.jpg" style="color: black;">《隐私协议》</a>
+                </div>
+            </div>
+            <div class="second_pi">
+                <button class="sec_41" id="3">
+                    登录
+                </button>
+                <a href="null.jpg" class="sec_42">注册</a>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+var user={
+    username:"admin",
+    userpassword:123456
+}
+
+function click(){
+    var m=document.getElementById("1")
+    var n=document.getElementById("2")
+    if(m.value == user.username && n.value==user.userpassword)
+        {window.alert("登录成功")
+        console.log(m)}
+    else window.alert("登录失败")
+}
+
+function click1(){
+
+    const in1=document.getElementById('1')
+    const in2=document.getElementById('2')
+    in1.setAttribute('value','输入用户名')
+    in2.setAttribute('value','输入密码')
+    
+}
+
+function click2(){
+    const in1=document.getElementById('1')
+    const in2=document.getElementById('2')
+    in1.setAttribute('value','输入手机号')
+    in2.setAttribute('value','输入验证码')
+    
+}
+
+const dom = document.getElementById('3');
+dom.addEventListener('click', click);
+const d1=document.getElementById('d1')
+const d2=document.getElementById('d2')
+d1.addEventListener('click',click1)
+d2.addEventListener('click',click2)
+
+
+</script>
+</html>
