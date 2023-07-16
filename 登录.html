@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>登录页</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #bdcbb7;
+    } 
+    .container {
+      width: 300px;
+      padding: 20px;
+      background-color:rgba(243, 241, 241, 0.974);
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    h2, label {
+      text-align: center;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .message {
+      margin-top: 10px;
+      text-align: center;
+    }
+    .success {
+      color: green;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>登录</h2>
+    <form id="login-form">
+      <label for="username">用户名：</label>
+      <input type="text" id="username" name="username">
+      <label for="password">密码：</label>
+      <input type="password" id="password" name="password">
+      <input type="submit" value="登录">
+    </form>
+    <div id="message" class="message"></div>
+  </div>
+
+  <script>
+    document.getElementById("login-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+      var messageDiv = document.getElementById("message");
+      if (username == "20281248" && password == "20281248") {
+        messageDiv.textContent = "登录成功！";
+        messageDiv.className = "message success";
+      } else {
+        messageDiv.textContent = "用户名或密码错误。";
+        messageDiv.className = "message error";
+      }
+    });
+  </script>
+</body>
+</html>
