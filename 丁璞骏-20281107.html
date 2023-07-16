@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Form</title>
+        <style>
+body
+{
+    margin: 0;
+    padding: 0;
+    background-color: #4983f0ba;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.login{
+    width: 382px;
+    overflow: hidden;
+    margin: auto;
+    margin: 20 0 0 450px;
+    padding: 80px;
+    background: #438175;
+    border-radius: 16px;
+}
+h2{
+    text-align: center;
+    color: #277582;
+    padding: 20px;
+}
+label{
+    color: #30e682;
+    font-size: 17px;
+}
+#Uname{
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    padding-left: 8px;
+}
+#Pass{
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    padding-left: 8px;
+}
+#log{
+    width: 370px;
+    height: 30px;
+    border: none;
+    border-radius: 20px;
+    color: blue;
+}
+span{
+    color: white;
+    font-size: 17px;
+}
+a{
+    font-size: 16px;
+    color: black;
+}
+
+
+        </style>
+    </head>
+    <body>
+        <h2>登录界面</h2><br>
+        <div class="login">
+            <form id="login" method="get">
+                <label><b>用户名:</b></label>
+                <input type="text" name="Uname" id="Uname" maxlength="100" placeholder="请输入用户名">
+                <br><br>
+                <label><b>密码：</b></label>
+                <input type="Password" name="Pass" id="Pass" placeholder="请输入密码">
+                <br><br>
+                <input type="button" name="log" id="log" value="登录" onclick="login(document.getElementById('Uname').value,document.getElementById('Pass').value)">
+                <br><br>
+                <input type="checkbox" id="check">
+                <span>记住我</span>
+                <br><br>
+                忘记密码？ <a href="#">点此处</a>
+            </form>
+        </div>
+    </body>
+    <script type="text/javascript">
+		function login(name, pass){
+           
+            if(name=="dpj"&& pass=="123456"){
+                alert("登录成功！");
+                window.location.href="login.html";
+            }
+            else{
+                alert("用户名或密码错误！");
+                window.location.href="login.html";
+            }
+			
+		}
+	</script>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>登入界面</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url("https://images.pexels.com/photos/1054218/pexels-photo-1054218.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+      background-size: cover;
+    }
+
+    .login {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      opacity: 0.8;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 2px solid #000;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #fff;
+    }
+
+    input[type=text], input[type=password] {
+      width: 200px;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 16px;
+      border: 2px solid #000;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+<div class="login">
+  <form>
+    <label for="username">账号：</label>
+    <input type="text" id="username" name="username"><br>
+    <label for="password">密码：</label>
+    <input type="password" id="password" name="password"><br>
+    <button type="button" onclick="checkLogin()">登入</button>
+  </form>
+</div>
+
+<script>
+  function checkLogin() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    var un="123456"
+    var ps="123456"
+    // 判断账号和密码是否正确
+    if (username === un && password === ps) {
+      alert("登入成功");
+    } else {
+      alert("账号或密码错误，请重新输入");
+    }
+  }
+</script>
+</body>
+</html>

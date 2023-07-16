@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .center {
+            padding-top: 200px;
+        }
+
+        .user {
+            width: 388px;
+            height: 320px;
+            background-color: #f2f7fa;
+            margin: 0 auto;
+            padding-top: 4px;
+            line-height: 54px;
+        }
+
+        .cuser {
+            text-align: center;
+            color: #606060;
+            font-weight: 500;
+            font-size: 17px;
+            margin-bottom: 40px;
+        }
+
+        .form .user1 {
+            width: 320px;
+            height: 30px;
+            line-height: 30px;
+            margin: 0 auto;
+            margin-top: 10px;
+            border-bottom: 1px solid #e1e6e9;
+            overflow: hidden;
+        }
+
+        .form .user2 {
+            width: 320px;
+            height: 30px;
+            line-height: 30px;
+            margin: 0 auto;
+            margin-top: 10px;
+            border-bottom: 1px solid #e1e6e9;
+            overflow: hidden;
+
+        }
+
+        .form div img {
+            width: 15px;
+        }
+
+        .form div input {
+            width: 288px;
+            border: none;
+            height: 27px;
+            line-height: 27px;
+            text-indent: 5px;
+            margin-top: -7px;
+            background-color: #f2f7fa;
+        }
+
+        .form div button {
+            width: 320px;
+            height: 36px;
+            line-height: 30px;
+            text-align: center;
+            background-color: #49c0e0;
+            border-radius: 5px;
+            margin: 0 auto;
+            display: block;
+            margin-top: 60px;
+            border: 1px solid #49c0e0;
+            color: #feffff;
+            letter-spacing: 1px;
+        }
+
+        .mima {
+            text-indent: 37px;
+            font-size: 12px;
+            color: #909090;
+            line-height: 20px;
+        }
+
+        .js .box {
+            font-size: 12px;
+            color: #000000;
+            border: 1px solid #006600;
+            background-color: #DBFBF7;
+        }
+
+        .jz {
+            display: block;
+            float: left;
+            font-size: 12px;
+            line-height: 20px;
+        }
+
+        .wj {
+            display: block;
+            float: right;
+            text-indent: 37px;
+            font-size: 12px;
+            color: #909090;
+            line-height: 20px;
+            margin-right: 40px;
+        }
+
+        .wj a {
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <div>
+            </div>
+
+            <!-- 中间部分 -->
+            <div class="center">
+                <!-- 登陆框 -->
+                <div class="user">
+                    <p class="cuser">账号登录</p>
+                    <!-- 用户名密码及登录按钮部分 -->
+                    <div class="form">
+                        <div class="user1">
+                            <img src="images/user.png" alt="">
+
+                            <input id=username type="text" placeholder="用户名">
+                        </div>
+                        <div class="user2">
+                            <img src="images/passwd.png" alt="">
+                            <input id=password type="password" placeholder="密码">
+                        </div>
+                        <div>
+                            <button type="button " onclick="login()">登录</button>
+                        </div>
+                    </div>
+                    <div style="height: 25px;"></div>
+                    <div class="mima">
+                        <p class="jz">
+                            <input type="checkbox" class="box">
+                            <span>记住密码</span>
+                        </p>
+                        <p class="wj">忘记密码?
+                            <a href="#">立即找回</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script>
+        function login() {
+          var userName = document.getElementById("username").value;
+          var password = document.getElementById("password").value;
+
+          if (userName === 'gph' && password === '123456')
+            alert("登录成功");
+          else
+            alert("登录失败");
+        }
+      </script>
+</body>
+
+</html>

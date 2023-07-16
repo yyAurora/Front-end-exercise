@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>美团外卖商家版</title>
+</head>
+<style>
+	.error {
+		color: #F00;
+	}
+	.authorize {
+		color: gray;
+
+	}
+	.logo {
+		height: 40px;
+	}
+	.input_body {
+		position: relative;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-align: center;
+		align-items: center;
+		font-size: 14px;
+		height: 60px;
+		color: #666666;
+		box-sizing: border-box;
+		border-bottom: 1px solid #eeeeee;
+		background: #fff;
+		-ms-flex: 1;
+		flex: 1;
+	}
+	.input {
+		border: none;
+		outline: none;
+		-ms-flex: 1;
+		flex: 1;
+		font-size: 14px;
+		background-color: transparent;
+	}
+	.forget {
+		margin-top: 15px;
+		margin-bottom: 43px;
+		-ms-flex-direction: row-reverse;
+		flex-direction: row-reverse;
+		align-items: end;
+		text-align: end;
+	}
+
+	.link1 {
+		color: black;
+		text-decoration: none;
+	}
+
+	.F-glob-standard-login:before {
+		content: "";
+	}
+	.F-glob-standard-password:before {
+		content: "";
+	}
+	.checkbox {
+		display: inline;
+	}
+	.authorize {
+		display: inline;
+	}
+	.loginbutton {
+		margin-top: 20px;
+		width: 100%;
+		height: 40px;
+		background: #ffd100;
+		color: #222222;
+		border-radius: 4px;
+		font-size: 14px;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		font-weight: 500;
+	}
+	.signuplink{
+   		display: -ms-flexbox;
+   		display: flex;
+   		-ms-flex-direction: row;
+   		flex-direction: row;
+   		-ms-flex-pack: center;
+   		justify-content: center;
+   		-ms-flex-align: center;
+   		align-items: center;
+	}
+</style>
+<script type="text/javascript">
+	var account="abc"
+	var password="123"
+	function checkaccount(acc,pwd){
+		if(acc==account && pwd==password){
+			return true; 
+		}else{
+			return false;
+		}
+	}
+	function login(){
+		var acc=document.getElementById("AccountInput").value
+		var pwd=document.getElementById("PasswordInput").value
+		var chk=document.getElementById("checkbox").checked
+		console.log(acc)
+		console.log(pwd)
+		console.log(chk)
+
+		if(chk==false){
+			window.alert("请同意协议")
+			return;
+		}
+		if(checkaccount(acc,pwd)){
+			window.alert("登录成功")
+		}else{
+			window.alert("登录失败");
+		}
+	}
+	function forget(){
+		window.alert("账号：abc\n密码：123")
+	}
+</script>
+<body data-new-gr-c-s-check-loaded="14.1032.0" data-gr-ext-installed="">
+	<div id="root" class="app-root" data-is-canary="false">
+		<div class="container_3uUOod">
+			<div class="header_wCW5nn"><img src="./logo-5496ba2ea8.webp" alt="美团外卖商家中心" class="logo">
+			</div>
+			<div style="width: 400px; margin: auto;">
+				<form class="form1" style="min-height: 325px;">
+					<div class="input_container" style="margin-top: 80px;">
+						<div class="input_body">
+							<label for="login" style="width: 30px;">
+								<i class="label_icon F-glob F-glob-standard-login"></i>
+							</label>
+							<input id="AccountInput" class="input" type="text" placeholder="输入账号" value="">
+						</div>
+						<div class="input_body">
+							<label for="password" style="width: 30px;">
+								<i class="label_icon F-glob F-glob-standard-password"></i>
+							</label>
+							<input id="PasswordInput" class="input" type="password" placeholder="输入密码" autocomplete="off"
+								value="">
+						</div>
+					</div>
+					<div class="forget"><a class="link1" onclick="forget()"
+							target="" rel="noreferrer">忘记账号/密码</a></div>
+					<div class="ep-protocol_container">
+						<div class="ep-protocol">
+							<input type="checkbox" class="checkbox" id="checkbox" value="second_checkbox">
+							<span class="authorize">我已阅读并同意
+								<a class="link2"
+									href="https://rules-center.meituan.com/m/detail/guize/172?activeRule=1&amp;commonType=6"
+									target="_blank" rel="noopener noreferrer">《美团外卖商家隐私协议》
+								</a>
+							</span>
+						</div>
+					</div>
+					<button type="submit" class="loginbutton" onclick="login()"
+						style="background: rgb(255, 209, 0); color: rgb(34, 34, 34);">登录</button>
+
+				</form>
+				<div class="signuplink">
+					<a class="link1" rel="noreferrer"
+						href="https://e.waimai.meituan.com/new_fe/login_gw#/signup" target=""
+						style="color: rgb(255, 96, 0);">注册账号，免费入驻</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

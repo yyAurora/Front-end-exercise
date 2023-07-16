@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style>
+input[type]{
+border: 1px solid darkorange;
+background: white;
+}
+#button{
+border: 10px solid orange;
+width: 200px;
+box-shadow:0px 4px 5px #666;
+background: orange;
+color: white;
+}
+</style>
+</head>
+<body>
+<center>
+<div>
+<form>
+<h3>用户登录</h3>
+<hr>
+<p>用户名:<input type="text" id="name" placeholder="请填写用户名" required="required" onblur="name1()" <!--onfocus="name2()-->"><br><span id="tel"></span></p>
+<p>密码:<input id="paswd" type="password" placeholder="请填写密码" onblur="pwd1()" required="required" onfocus="pwd2()"><br><span id="pw"></span></p>
+<button onclick="validate()">登录</button>
+
+</form>
+</div>
+</center>
+</body>
+
+<script>
+function name1(){
+var name=document.getElementById("name").value;
+if(name.length==""){
+document.getElementById("tel").innerHTML="用户名不能为空"
+document.getElementById("tel").style.color="red";
+}else{
+document.getElementById("tel").innerHTML="√"
+document.getElementById("tel").style.color="green";
+}
+
+}
+
+function pwd1(){
+p=document.getElementById("paswd").value;
+
+if(p.length>=6&&p.length<=20)
+{
+document.getElementById("pw").innerHTML="√"
+document.getElementById("pw").style.color="green";
+}else{
+document.getElementById("pw").innerHTML="格式错误,请输入6-20位"
+document.getElementById("pw").style.color="red";
+}
+}
+function validate(){
+var qpw=document.getElementById("name").value;
+var qpw2=document.getElementById("paswd").value;
+
+if(qpw=="zmy" && qpw2=="123456"){
+    alert("登录成功");
+}
+
+}
+</script>
+</html>

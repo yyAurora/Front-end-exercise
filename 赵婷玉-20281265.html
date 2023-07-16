@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <style>
+        
+        body{
+            background-color: antiquewhite;
+            background-size: cover;
+        }
+        h1{
+            margin-top: 0%;
+        }
+        a{
+            margin-top: 10px;
+            color: rgb(254, 195, 15);
+        }
+        li{
+            margin-top: 16px;
+            color: rgba(37, 33, 20, 0.523);
+            font-size: 15px;
+        }
+        #loginbox{
+            width:30%;
+            height: 40%;
+            background-color: rgba(0,0,0,0.36);
+            margin: auto;
+            margin-top: 5%;
+            text-align: center;
+            border-radius: 10px;
+            padding: 50px 50px;
+            font-size: 20px;
+            
+        }
+        #sign-in-btn{
+            margin-top: 30px;
+            height: 30px;
+            border-radius: 10px;
+            border: 0;
+            width: 600%;
+            line-height: 30px;
+            background-color:rgb(254, 195, 15);
+            font-size: 20px;
+        }
+        #username{
+            border:0;
+            width:70%;
+            font-size:20px;
+            background: transparent;
+            border-bottom: 2px solid rgba(128.32.10.0.65);
+            padding: 8px 16px;
+            outline: none;
+        }
+        #password{
+            border:0;
+            width:70%;
+            font-size:20px;
+            background: transparent;
+            border-bottom: 2px solid rgba(128.32.10.0.65);
+            padding: 8px 16px;
+            outline: none;
+        }
+
+    </style>
+    
+    <script>
+        var user1=["aa","666"];
+        function SignIn(){
+            const uname = document.getElementById('username').value;
+            const psw = document.getElementById('password').value;
+            if(uname===user1[0]){
+                if(psw===user1[1]){
+                    alert("登陆成功")
+                }
+                else{
+                    alert("密码错误，请重试")
+                }
+            }
+            else{
+                alert("用户不存在，请注册");
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <form id="loginbox" method="post" action="index.html" onsubmit="return SignIn()">
+        <h1>美团商家登录</h1>
+        <table class="login-window">
+            <tr>
+                <td><label for="username">账  号：</label></td>
+                <td><input id="username" pattern="\w+" type="text" placeholder="输入账号" tabindex="1" autofocus></td>
+            </tr>
+            <tr>
+                <td><label for="password">密  码：</label></td>
+                <td><input id="password" pattern="\w+" type="password" placeholder="输入密码" tabindex="2"></td>
+            </tr>
+            <tr>
+                <td><input id="sign-in-btn" type="submit" value="登  录" tabindex="3"></td>
+            </tr>
+        </table>
+        <li>没有账户？<a href="index.html">点击注册</a></li>
+    </form>
+</body>
+</html>

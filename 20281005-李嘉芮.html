@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <style type="text/css">
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f1f1f1;
+        }
+        .login-form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            width: 300px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .form-group button {
+            background: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="login-form">
+    <h2>欢迎登录</h2>
+    <div class="form-group">
+        <label for="username">用户账号:</label>
+        <input type="text" id="username" placeholder="请输入您的账户:">
+    </div>
+    <div class="form-group">
+        <label for="password">密码:</label>
+        <input type="password" id="password" placeholder="请输入您的密码:">
+    </div>
+    <div class="form-group">
+        <button onclick="checkLogin()">登录</button>
+    </div>
+</div>
+<script>
+    function checkLogin() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        // 进行登录验证的逻辑处理
+        if (username === "ljr" && password === "123456") {
+            alert("登录成功!");
+        } else {
+            alert("请重新输入账号密码!");
+        }
+    }
+</script>
+</body>
+</html>
